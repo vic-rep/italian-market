@@ -1,0 +1,412 @@
+// Source of truth for all visible copy. Written natively per language.
+// `[bracketed]` values are pre-launch placeholders to be filled before launch.
+//
+// Additions beyond the original brief, needed to render accessible/SEO markup:
+//   - faq.heading        (section heading for the FAQ block)
+//   - price.colRegion / price.colPrice (column headers for the crawlable table)
+// These are faithful translations, not copy changes.
+
+export const messages = {
+  en: {
+    nav: { howItWorks: 'How it works', whatIsRca: 'What is RC Auto', about: 'About us' },
+    hero: {
+      headline: 'Your car insurance, checked in 10 seconds.',
+      subhead:
+        'Enter your plate. See your status, renewal date, and bonus-malus class — free, no account.',
+      plate: 'Number plate',
+      plateTooltip: 'We use your plate to pull your policy details. Nothing else.',
+      phone: 'Mobile number',
+      phoneTooltip: 'So we can remind you before your policy expires. No spam, never sold.',
+      cta: 'Check for free',
+      microcopy: '10 seconds. No account. We never sell your data.',
+    },
+    lifestyle: {
+      headline: 'Your agent, online.',
+      body: 'No office, no queue. Check your policy, compare every insurer, and renew at the right price — all from your phone.',
+      bullets: ['No office.', 'No paperwork.', 'No queue.', 'Quick, simple', 'Secure and private.'],
+    },
+    trust: { regulated: 'Licensed & regulated', drivers: '14,000+ drivers' },
+    social: {
+      heading: 'Zero surprises. Ask those who\'ve already renewed.',
+      rating: 'The average among drivers who renewed their RC Auto with us.',
+      review:
+        'Sorted my renewal in five minutes — and an actual person picked up when I called.',
+      regulated: 'A licensed, regulated broker. Reg. [IT number].',
+      humanPromise: 'When you call, a person answers. Not a queue. Not a bot.',
+    },
+    how: {
+      heading: 'How it works',
+      steps: [
+        { title: 'Enter your plate',            desc: 'Your plate and mobile number — that\'s all. About ten seconds, no account.' },
+        { title: 'See your results instantly',  desc: 'Status, renewal date, insurer, bonus-malus class, even any open fines — on screen right away. No waiting, no callback.' },
+        { title: 'Never miss your renewal',     desc: 'Get a reminder before your policy expires, so you\'re never caught uninsured — and find the best price when it\'s time.' },
+      ],
+      illExpiry:    'Expires',
+      illBmClass:   'BM class',
+      illBmValue:   'Class 6',
+      illExpDate:   '15 Apr 2026',
+      illCallLabel: 'Reminder set',
+      illCallBody:  'We call 30 days before',
+    },
+    why: {
+      heading: "Driving uninsured isn't just a fine. It's your car on a tow truck.",
+      body: 'In Italy, an expired policy can mean a fine, a suspended plate, and your car impounded. Almost nobody misses the date on purpose — they just forget. We make sure you don’t.',
+    },
+    rca: {
+      heading: 'What is RC Auto?',
+      body: "RC Auto — Responsabilità Civile Auto — is mandatory in Italy. It covers the damage you cause to other people when you're driving. Not your own car. Here's exactly what's in, and what's not.",
+      kasko: 'Ready to get insured? Call us now — [phone]',
+      covered: ['Injury to other people', 'Other vehicles and property', 'Your passengers'],
+      notCovered: [
+        'Your own car',
+        'Theft and fire',
+        'Vandalism',
+        'Weather damage',
+        "The at-fault driver's injuries",
+      ],
+    },
+    price: {
+      factorsHeading: 'What sets your price?',
+      factors: [
+        'Car type and power',
+        'Where you live',
+        'Your age and experience',
+        'Your bonus-malus class',
+      ],
+      chartHeading: 'What does RC Auto cost in Italy in 2026?',
+      chartSubhead: "Price swings a lot by region. Here's the rough yearly average.",
+      footnote: 'Illustrative figures — replaced with sourced data before launch.',
+      colRegion: 'Region',
+      colPrice: 'Average €/year',
+      mapHint: 'Tap a region to see its average.',
+      statMostExpensive: 'Most expensive',
+      statCheapest: 'Cheapest',
+      statAverage: 'National average',
+      perYear: 'per year',
+      legendLow: 'Lower',
+      legendHigh: 'Higher',
+    },
+    faq: {
+      heading: 'Frequently asked questions',
+      q1: 'Is it really free?',
+      a1: "Yes. Checking your status costs nothing, and there's no account to create.",
+      q2: 'What do you do with my number?',
+      a2: 'We use it to remind you before your policy expires. Never sold, never spammed.',
+      q3: 'Are you an insurer?',
+      a3: "No — we're a regulated broker. We compare every insurer, find you the best price, and you buy through us.",
+      q4: 'Can I check any plate?',
+      a4: 'Only your own. By checking, you confirm the vehicle is yours.',
+      q5: 'How much is RC Auto in my region?',
+      a5: 'Rough yearly averages by region — illustrative figures, not a quote.',
+    },
+    repeatCta: { headline: 'Your plate. Ten seconds. Done.', cta: 'Check for free' },
+    footer: {
+      companyLine: 'Trusti — a licensed insurance broker. Reg. [IT number].',
+      colProduct: 'Product',
+      colCompany: 'Company',
+      colLegal: 'Legal',
+      product: ['RC Auto', 'Kasko', 'Compare'],
+      company: ['About', 'How it works', 'Contact'],
+      legal: ['Privacy', 'Terms', 'Cookie'],
+      humanLine: 'Questions? Call us — a person answers. [phone] · [hours]',
+    },
+    result: {
+      header: 'Your RC Auto · {plate}',
+      insured: 'Insured',
+      validUntil: 'Valid until {date}',
+      notInsured: 'Not insured',
+      notInsuredSub: 'This vehicle has no active policy.',
+      getCovered: 'Get covered now',
+      rowInsurer: 'Insurer',
+      rowActiveSince: 'Active since',
+      rowVehicle: 'Vehicle',
+      rowBonusMalus: 'Bonus-malus class',
+      rowFines: 'Fines on record',
+      reminder: 'Reminder set',
+      reminderSub: "We'll call you before it expires.",
+      secondaryCta: 'Want a better price at renewal?',
+      checkAnother: 'Check another plate',
+    },
+    ui: { language: 'Language', theme: 'Theme', loading: 'Checking your policy…' },
+  },
+
+  it: {
+    nav: { howItWorks: 'Come funziona', whatIsRca: "Cos'è la RC Auto", about: 'Chi siamo' },
+    hero: {
+      headline: 'La tua RC Auto, verificata in 10 secondi.',
+      subhead:
+        'Inserisci la targa. Scopri stato, scadenza e classe di merito — gratis, senza registrazione.',
+      plate: 'Targa',
+      plateTooltip: 'Usiamo la targa solo per recuperare i dati della tua polizza. Nient’altro.',
+      phone: 'Numero di cellulare',
+      phoneTooltip: 'Per ricordarti la scadenza prima che arrivi. Niente spam, mai ceduto a terzi.',
+      cta: 'Controlla gratis',
+      microcopy: '10 secondi. Senza registrazione. Non vendiamo mai i tuoi dati.',
+    },
+    lifestyle: {
+      headline: 'Il tuo agente, online.',
+      body: 'Niente ufficio, niente code. Controlla la polizza, confronta tutte le compagnie e rinnova al prezzo giusto — dal telefono.',
+      bullets: ['Nessun ufficio.', 'Nessuna burocrazia.', 'Nessuna coda.', 'Rapido e semplice', 'Sicuro e riservato.'],
+    },
+    trust: { regulated: 'Autorizzata e regolamentata', drivers: '14.000+ automobilisti' },
+    social: {
+      heading: 'Zero sorprese. Chiedilo a chi ha già rinnovato.',
+      rating: 'La media di chi ha rinnovato la RC Auto con noi.',
+      review:
+        'Rinnovo sistemato in cinque minuti — e al telefono ha risposto una persona vera.',
+      regulated: 'Broker autorizzato e regolamentato. Iscr. [n. IT].',
+      humanPromise: 'Quando chiami, risponde una persona. Non una coda. Non un bot.',
+    },
+    how: {
+      heading: 'Come funziona',
+      steps: [
+        { title: 'Inserisci la targa',          desc: 'La tua targa e il numero di cellulare — tutto qui. Circa dieci secondi, senza registrazione.' },
+        { title: 'Vedi subito i risultati',      desc: 'Stato, scadenza, compagnia, classe di merito e anche eventuali multe — subito a schermo. Nessuna attesa, nessuna richiamata.' },
+        { title: 'Non perdere la scadenza',      desc: 'Ricevi un promemoria prima che la polizza scada, così non resti mai scoperto — e trovi il prezzo migliore al momento giusto.' },
+      ],
+      illExpiry:    'Scadenza',
+      illBmClass:   'Classe BM',
+      illBmValue:   '6ª classe',
+      illExpDate:   '15 apr 2026',
+      illCallLabel: 'Promemoria attivato',
+      illCallBody:  'Ti chiamiamo 30 giorni prima',
+    },
+    why: {
+      heading: "Guidare senza assicurazione non è solo una multa. È la tua auto sul carro attrezzi.",
+      body: 'In Italia, una polizza scaduta può voler dire multa, targa sospesa e auto sequestrata. Quasi nessuno salta la scadenza apposta — semplicemente la dimentica. Noi facciamo in modo che non succeda.',
+    },
+    rca: {
+      heading: "Cos'è la RC Auto?",
+      body: 'La RC Auto — Responsabilità Civile Auto — è obbligatoria in Italia. Copre i danni che provochi agli altri quando guidi. Non la tua auto. Ecco cosa include, e cosa no.',
+      kasko: 'Pronto ad assicurarti? Chiamaci subito — [telefono]',
+      covered: ['Lesioni ad altre persone', 'Veicoli e cose di terzi', 'I tuoi passeggeri'],
+      notCovered: [
+        'La tua auto',
+        'Furto e incendio',
+        'Atti vandalici',
+        'Eventi atmosferici',
+        'Lesioni del conducente responsabile',
+      ],
+    },
+    price: {
+      factorsHeading: 'Da cosa dipende il prezzo?',
+      factors: [
+        'Tipo e potenza del veicolo',
+        'Dove vivi',
+        'Età ed esperienza alla guida',
+        'La tua classe di merito',
+      ],
+      chartHeading: 'Quanto costa la RC Auto in Italia nel 2026?',
+      chartSubhead:
+        'Il prezzo cambia molto da regione a regione. Ecco la media annua indicativa.',
+      footnote: 'Dati illustrativi — sostituiti con fonti reali prima del lancio.',
+      colRegion: 'Regione',
+      colPrice: 'Media €/anno',
+      mapHint: 'Tocca una regione per vedere la media.',
+      statMostExpensive: 'Più cara',
+      statCheapest: 'Più economica',
+      statAverage: 'Media nazionale',
+      perYear: "all'anno",
+      legendLow: 'Più basso',
+      legendHigh: 'Più alto',
+    },
+    faq: {
+      heading: 'Domande frequenti',
+      q1: 'È davvero gratis?',
+      a1: 'Sì. Controllare lo stato non costa nulla e non serve registrarsi.',
+      q2: 'Cosa fate con il mio numero?',
+      a2: 'Lo usiamo per ricordarti la scadenza. Mai ceduto, mai spam.',
+      q3: 'Siete una compagnia assicurativa?',
+      a3: 'No — siamo un broker regolamentato. Confrontiamo tutte le compagnie, troviamo il prezzo migliore e acquisti tramite noi.',
+      q4: 'Posso controllare qualsiasi targa?',
+      a4: 'Solo la tua. Effettuando il controllo, confermi che il veicolo è tuo.',
+      q5: 'Quanto costa la RC Auto nella mia regione?',
+      a5: 'Medie annue indicative per regione — dati illustrativi, non un preventivo.',
+    },
+    repeatCta: { headline: 'La tua targa. Dieci secondi. Fatto.', cta: 'Controlla gratis' },
+    footer: {
+      companyLine: 'Trusti — broker assicurativo autorizzato. Iscr. [n. IT].',
+      colProduct: 'Prodotti',
+      colCompany: 'Azienda',
+      colLegal: 'Note legali',
+      product: ['RC Auto', 'Kasko', 'Confronta'],
+      company: ['Chi siamo', 'Come funziona', 'Contatti'],
+      legal: ['Privacy', 'Termini', 'Cookie'],
+      humanLine: 'Domande? Chiamaci — risponde una persona. [telefono] · [orari]',
+    },
+    result: {
+      header: 'La tua RC Auto · {plate}',
+      insured: 'Assicurata',
+      validUntil: 'Valida fino al {date}',
+      notInsured: 'Non assicurata',
+      notInsuredSub: 'Questo veicolo non ha una polizza attiva.',
+      getCovered: 'Assicurati ora',
+      rowInsurer: 'Compagnia',
+      rowActiveSince: 'Attiva dal',
+      rowVehicle: 'Veicolo',
+      rowBonusMalus: 'Classe di merito',
+      rowFines: 'Multe registrate',
+      reminder: 'Promemoria attivato',
+      reminderSub: 'Ti chiamiamo prima della scadenza.',
+      secondaryCta: 'Vuoi un prezzo migliore al rinnovo?',
+      checkAnother: "Controlla un'altra targa",
+    },
+    ui: { language: 'Lingua', theme: 'Tema', loading: 'Controllo la tua polizza…' },
+  },
+
+  bg: {
+    nav: {
+      howItWorks: 'Как работи',
+      whatIsRca: 'Какво е Гражданска отговорност',
+      about: 'За нас',
+    },
+    hero: {
+      headline: 'Твоята автозастраховка, проверена за 10 секунди.',
+      subhead:
+        'Въведи регистрационния номер. Виж статус, дата на изтичане и бонус-малус клас — безплатно, без регистрация.',
+      plate: 'Регистрационен номер',
+      plateTooltip: 'Използваме номера само за да извлечем данните на полицата ти. Нищо друго.',
+      phone: 'Мобилен номер',
+      phoneTooltip: 'За да ти напомним преди да изтече полицата. Без спам, никога не го продаваме.',
+      cta: 'Провери безплатно',
+      microcopy: '10 секунди. Без регистрация. Никога не продаваме данните ти.',
+    },
+    lifestyle: {
+      headline: 'Твоят агент, онлайн.',
+      body: 'Без офис, без опашки. Провери полицата, сравни всички застрахователи и поднови на правилната цена — направо от телефона.',
+      bullets: ['Без офис.', 'Без бюрокрация.', 'Без опашки.', 'Бързо и лесно', 'Сигурно и поверително.'],
+    },
+    trust: { regulated: 'Лицензиран и регулиран', drivers: '14 000+ шофьори' },
+    social: {
+      heading: 'Нула изненади. Питай тези, които вече са подновили.',
+      rating: 'Средната оценка на шофьорите, подновили с нас.',
+      review:
+        'Подновиха ми полицата за пет минути — и когато се обадих, вдигна истински човек.',
+      regulated: 'Лицензиран и регулиран брокер. Рег. № [номер].',
+      humanPromise: 'Когато се обадиш, вдига човек. Не опашка. Не бот.',
+    },
+    how: {
+      heading: 'Как работи',
+      steps: [
+        { title: 'Въведи регистрационния номер', desc: 'Само номерът и мобилният ти телефон. Около десет секунди, без регистрация.' },
+        { title: 'Виж резултатите веднага',       desc: 'Статус, дата на изтичане, застраховател, бонус-малус клас и дори регистрирани глоби — веднага на екрана. Без чакане, без обратно обаждане.' },
+        { title: 'Не пропускай подновяването',    desc: 'Получаваш напомняне преди полицата да изтече, за да не оставаш без покритие — и да хванеш най-добрата цена в точния момент.' },
+      ],
+      illExpiry:    'Изтича',
+      illBmClass:   'БМ клас',
+      illBmValue:   'Клас 6',
+      illExpDate:   '15 апр 2026',
+      illCallLabel: 'Напомняне активирано',
+      illCallBody:  'Обаждаме се 30 дни преди',
+    },
+    why: {
+      heading: 'Да караш без застраховка не е само глоба. Това е колата ти на пътна помощ.',
+      body: 'В Италия изтекла полица може да означава глоба, спрян регистрационен номер и иззета кола. Почти никой не пропуска датата нарочно — просто забравя. Ние се грижим да не ти се случи.',
+    },
+    rca: {
+      heading: 'Какво е Гражданска отговорност?',
+      body: 'Гражданската отговорност е задължителна. Покрива щетите, които причиняваш на други хора, докато шофираш. Не твоята кола. Ето какво включва и какво не.',
+      kasko: 'Готов да се застраховаш? Обади ни се сега — [телефон]',
+      covered: [
+        'Телесни повреди на трети лица',
+        'Чужди превозни средства и имущество',
+        'Твоите пътници',
+      ],
+      notCovered: [
+        'Твоята кола',
+        'Кражба и пожар',
+        'Вандализъм',
+        'Природни бедствия',
+        'Травми на виновния водач',
+      ],
+    },
+    price: {
+      factorsHeading: 'От какво зависи цената?',
+      factors: [
+        'Тип и мощност на автомобила',
+        'Къде живееш',
+        'Възраст и опит зад волана',
+        'Твоят бонус-малус клас',
+      ],
+      chartHeading: 'Колко струва Гражданска отговорност в Италия през 2026?',
+      chartSubhead:
+        'Цената се различава силно по региони. Ето ориентировъчната средна годишна стойност.',
+      footnote: 'Илюстративни данни — ще бъдат заменени с реални източници преди старта.',
+      colRegion: 'Регион',
+      colPrice: 'Средно €/година',
+      mapHint: 'Докоснете регион, за да видите средната цена.',
+      statMostExpensive: 'Най-скъп',
+      statCheapest: 'Най-евтин',
+      statAverage: 'Средно за страната',
+      perYear: 'на година',
+      legendLow: 'По-ниско',
+      legendHigh: 'По-високо',
+    },
+    faq: {
+      heading: 'Често задавани въпроси',
+      q1: 'Наистина ли е безплатно?',
+      a1: 'Да. Проверката на статуса не струва нищо и не е нужна регистрация.',
+      q2: 'Какво правите с номера ми?',
+      a2: 'Използваме го, за да ти напомним преди изтичане. Не го продаваме, без спам.',
+      q3: 'Застраховател ли сте?',
+      a3: 'Не — ние сме регулиран брокер. Сравняваме всички застрахователи, намираме най-добрата цена и сключваш чрез нас.',
+      q4: 'Мога ли да проверя всеки номер?',
+      a4: 'Само твоя. С проверката потвърждаваш, че автомобилът е твой.',
+      q5: 'Колко струва Гражданска отговорност в моя регион?',
+      a5: 'Ориентировъчни средни годишни стойности по регион — илюстративни данни, не оферта.',
+    },
+    repeatCta: { headline: 'Твоят номер. Десет секунди. Готово.', cta: 'Провери безплатно' },
+    footer: {
+      companyLine: 'Trusti — лицензиран застрахователен брокер. Рег. № [номер].',
+      colProduct: 'Продукти',
+      colCompany: 'Компания',
+      colLegal: 'Правни',
+      product: ['Гражданска отговорност', 'Каско', 'Сравни'],
+      company: ['За нас', 'Как работи', 'Контакти'],
+      legal: ['Поверителност', 'Условия', 'Бисквитки'],
+      humanLine: 'Въпроси? Обади ни се — вдига човек. [телефон] · [часове]',
+    },
+    result: {
+      header: 'Твоята Гражданска отговорност · {plate}',
+      insured: 'Застрахована',
+      validUntil: 'Валидна до {date}',
+      notInsured: 'Незастрахована',
+      notInsuredSub: 'Този автомобил няма активна полица.',
+      getCovered: 'Застраховай се сега',
+      rowInsurer: 'Застраховател',
+      rowActiveSince: 'Активна от',
+      rowVehicle: 'Автомобил',
+      rowBonusMalus: 'Бонус-малус клас',
+      rowFines: 'Регистрирани глоби',
+      reminder: 'Напомнянето е активирано',
+      reminderSub: 'Ще ти се обадим преди да изтече.',
+      secondaryCta: 'Искаш по-добра цена при подновяване?',
+      checkAnother: 'Провери друг номер',
+    },
+    ui: { language: 'Език', theme: 'Тема', loading: 'Проверявам полицата ти…' },
+  },
+} as const
+
+export type Locale = keyof typeof messages
+export const LOCALES: Locale[] = ['en', 'it', 'bg']
+export const DEFAULT_LOCALE: Locale = 'it'
+
+export const LOCALE_LABELS: Record<Locale, string> = {
+  en: 'English',
+  it: 'Italiano',
+  bg: 'Български',
+}
+
+// Maps app locale to a BCP-47 tag for Intl formatting (dates, etc.).
+export const LOCALE_TAGS: Record<Locale, string> = {
+  en: 'en-GB',
+  it: 'it-IT',
+  bg: 'bg-BG',
+}
+
+// Tiny {placeholder} interpolation — replaces {key} with vars[key].
+export function fmt(template: string, vars: Record<string, string | number>): string {
+  return template.replace(/\{(\w+)\}/g, (_, key: string) =>
+    key in vars ? String(vars[key]) : `{${key}}`,
+  )
+}
