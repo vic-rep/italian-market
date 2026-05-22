@@ -4,6 +4,10 @@ dist-ssr
 *.local
 .DS_Store
 
+# AI tooling — local only, not app code
+.agents/
+.claude/
+
 # Editor
 .vscode/*
 !.vscode/extensions.json
