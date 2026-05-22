@@ -36,7 +36,7 @@ export function ResultCard({
   return (
     <div
       aria-live="polite"
-      className="rounded-3xl border border-border bg-surface p-5 shadow-sm"
+      className="rounded-3xl border border-border bg-surface p-6 shadow-sm sm:p-7"
     >
       <h2 className="text-lg font-semibold text-primary">{fmt(t.result.header, { plate })}</h2>
 

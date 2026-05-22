@@ -14,7 +14,7 @@ export function Tooltip({ text, triggerLabel }: { text: string; triggerLabel: st
         type="button"
         aria-label={triggerLabel}
         aria-describedby={open ? id : undefined}
-        className="inline-flex h-5 w-5 items-center justify-center rounded-full text-tertiary transition-colors hover:text-secondary"
+        className="-m-1.5 inline-flex h-8 w-8 items-center justify-center rounded-full text-tertiary transition-colors hover:text-secondary"
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
         onFocus={() => setOpen(true)}

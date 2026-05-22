@@ -108,7 +108,7 @@ export function Hero() {
                   autoCapitalize="characters"
                   spellCheck={false}
                   disabled={isLoading}
-                  className="w-full rounded-xl border border-border bg-page px-4 py-3 text-base font-medium tracking-wide text-primary uppercase transition-colors focus:border-accent focus:outline-none disabled:opacity-60"
+                  className="w-full rounded-xl border border-border bg-page px-4 py-3 text-base font-medium tracking-wide text-primary uppercase transition-[border-color,box-shadow] focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-60"
                 />
               </div>
 
@@ -129,7 +129,7 @@ export function Hero() {
                   required
                   autoComplete="tel"
                   disabled={isLoading}
-                  className="w-full rounded-xl border border-border bg-page px-4 py-3 text-base text-primary transition-colors focus:border-accent focus:outline-none disabled:opacity-60"
+                  className="w-full rounded-xl border border-border bg-page px-4 py-3 text-base text-primary transition-[border-color,box-shadow] focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-60"
                 />
               </div>
 

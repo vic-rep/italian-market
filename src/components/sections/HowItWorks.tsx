@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 import { useI18n } from '../../i18n/I18nContext'
 import { Container } from '../shared/Container'
 
@@ -54,6 +54,7 @@ function PhoneCallIcon() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 function IllustrationPlate({ hovered }: { hovered: boolean }) {
+  const reduce = useReducedMotion()
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-3 px-8">
       {/* EU-style Italian licence plate — static */}
@@ -90,8 +91,8 @@ function IllustrationPlate({ hovered }: { hovered: boolean }) {
           {hovered && (
             <motion.span
               className="inline-block h-[1em] w-[2px] bg-accent align-middle"
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse', ease: 'linear' }}
+              animate={reduce ? { opacity: 1 } : { opacity: [1, 0] }}
+              transition={reduce ? { duration: 0 } : { duration: 0.5, repeat: Infinity, repeatType: 'reverse', ease: 'linear' }}
             />
           )}
           {/* Placeholder dots fade out on focus; kept in layout so field width stays stable */}
@@ -113,6 +114,7 @@ function IllustrationPlate({ hovered }: { hovered: boolean }) {
 
 function IllustrationPolicy({ hovered }: { hovered: boolean }) {
   const { t } = useI18n()
+  const reduce = useReducedMotion()
   const rows: [string, string][] = [
     [t.result.rowInsurer, 'Generali'],
     [t.how.illExpiry,     t.how.illExpDate],
@@ -127,7 +129,7 @@ function IllustrationPolicy({ hovered }: { hovered: boolean }) {
           <span className="text-xs font-semibold text-primary">AB 123 CD</span>
           <motion.span
             className="flex items-center gap-1 rounded-full bg-action/20 px-2 py-0.5 text-[11px] font-bold text-on-action whitespace-nowrap"
-            animate={hovered ? { scale: 1.1 } : { scale: 1 }}
+            animate={hovered && !reduce ? { scale: 1.1 } : { scale: 1 }}
             transition={{ type: 'spring', stiffness: 380, damping: 22 }}
           >
             <CheckSmIcon />
@@ -163,6 +165,7 @@ function IllustrationPolicy({ hovered }: { hovered: boolean }) {
 
 function IllustrationCall({ hovered }: { hovered: boolean }) {
   const { t } = useI18n()
+  const reduce = useReducedMotion()
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-4">
       <div className="relative flex h-[3.5rem] w-[3.5rem] items-center justify-center rounded-full bg-accent/10">
@@ -173,12 +176,12 @@ function IllustrationCall({ hovered }: { hovered: boolean }) {
             aria-hidden="true"
             className="absolute inset-0 rounded-full ring-2 ring-accent/40"
             animate={
-              hovered
+              hovered && !reduce
                 ? { scale: [1, 1.75], opacity: [0.65, 0] }
                 : { scale: 1, opacity: 0 }
             }
             transition={
-              hovered
+              hovered && !reduce
                 ? { duration: 1.1, repeat: Infinity, delay, ease: 'easeOut' }
                 : { duration: 0.15 }
             }
@@ -188,12 +191,12 @@ function IllustrationCall({ hovered }: { hovered: boolean }) {
         {/* Phone icon wobbles like it's ringing */}
         <motion.div
           animate={
-            hovered
+            hovered && !reduce
               ? { rotate: [0, -14, 14, -10, 10, -5, 5, 0] }
               : { rotate: 0 }
           }
           transition={
-            hovered
+            hovered && !reduce
               ? { duration: 0.65, ease: 'easeInOut', repeat: Infinity, repeatDelay: 1.4 }
               : { duration: 0.2 }
           }

@@ -13,7 +13,7 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       aria-label={t.ui.theme}
       title={t.ui.theme}
-      className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-primary transition-colors hover:border-primary/30"
+      className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-primary transition-colors hover:border-primary/30"
     >
       <SunIcon
         className={`absolute h-5 w-5 transition-all duration-300 ${

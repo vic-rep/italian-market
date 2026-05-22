@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
-import { motion, AnimatePresence, type Variants } from 'motion/react'
+import { motion, AnimatePresence, useReducedMotion, type Variants } from 'motion/react'
 import { useI18n } from '../../i18n/I18nContext'
 import type { Locale } from '../../i18n/messages'
 import { Container } from '../shared/Container'
@@ -157,6 +157,7 @@ function ReviewCard({ review, variant }: { review: Review; variant: CardVariant 
 export function GoogleReviews() {
   const { t, locale } = useI18n()
   const reviews = REVIEWS[locale]
+  const reduce = useReducedMotion()
 
   const containerRef                          = useRef<HTMLDivElement>(null)
   const viewportRef                           = useRef<HTMLDivElement>(null)
@@ -174,11 +175,17 @@ export function GoogleReviews() {
 
   // Direction-aware slide. Defined here so the resolvers close over the current
   // cardWidth; `direction` (1 | -1) is supplied via the `custom` prop.
-  const slideVariants: Variants = {
-    enter:  (dir: number) => ({ x: dir > 0 ? cardWidth + GAP : -(cardWidth + GAP), scale: 0.3, opacity: 0 }),
-    center: { x: 0, opacity: 1, scale: 1 },
-    exit:   (dir: number) => ({ x: dir > 0 ? -(cardWidth + GAP) : cardWidth + GAP, scale: 0.3, opacity: 0 }),
-  }
+  const slideVariants: Variants = reduce
+    ? {
+        enter:  { opacity: 0 },
+        center: { opacity: 1 },
+        exit:   { opacity: 0 },
+      }
+    : {
+        enter:  (dir: number) => ({ x: dir > 0 ? cardWidth + GAP : -(cardWidth + GAP), scale: 0.3, opacity: 0 }),
+        center: { x: 0, opacity: 1, scale: 1 },
+        exit:   (dir: number) => ({ x: dir > 0 ? -(cardWidth + GAP) : cardWidth + GAP, scale: 0.3, opacity: 0 }),
+      }
 
   return (
     <section className="gr-section" aria-label={t.social.heading}>
@@ -232,19 +239,23 @@ export function GoogleReviews() {
                   return (
                     <motion.div
                       key={review.id}
-                      layout
+                      layout={!reduce}
                       custom={direction}
                       variants={slideVariants}
                       style={{ position: 'absolute', top: 0, bottom: 0, left: leftPos, width: cardWidth || undefined }}
                       initial="enter"
                       animate="center"
                       exit="exit"
-                      transition={{
-                        layout:  { type: 'spring', stiffness: 560, damping: 36, mass: 0.4 },
-                        x:       { type: 'spring', stiffness: 560, damping: 36, mass: 0.4 },
-                        scale:   { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
-                        opacity: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
-                      }}
+                      transition={
+                        reduce
+                          ? { duration: 0.2 }
+                          : {
+                              layout:  { type: 'spring', stiffness: 560, damping: 36, mass: 0.4 },
+                              x:       { type: 'spring', stiffness: 560, damping: 36, mass: 0.4 },
+                              scale:   { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+                              opacity: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+                            }
+                      }
                     >
                       <ReviewCard review={review} variant={variant} />
                     </motion.div>

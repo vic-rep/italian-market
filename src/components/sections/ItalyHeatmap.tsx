@@ -6,6 +6,7 @@ import type { FeatureCollection } from 'geojson'
 import type { GeometryCollection, Topology } from 'topojson-specification'
 import topologyJson from '../../data/italyRegions.topo.json'
 import { priceByCode, minPrice, maxPrice } from '../../data/regionalPrices'
+import { useI18n } from '../../i18n/I18nContext'
 
 const VB_W = 600
 const VB_H = 720
@@ -46,6 +47,7 @@ function fillFor(eur: number | undefined): string {
 }
 
 export function ItalyHeatmap() {
+  const { t } = useI18n()
   const regions = useMemo(buildRegions, [])
   const [activeCode, setActiveCode] = useState<string | null>(null)
   const [coords, setCoords] = useState({ x: 0, y: 0 })
@@ -102,7 +104,7 @@ export function ItalyHeatmap() {
           <p className="text-base font-semibold text-primary tabular-nums">
             {active.eur != null ? `€${active.eur}` : '—'}
             {active.eur != null && (
-              <span className="text-xs font-normal text-secondary"> /yr</span>
+              <span className="text-xs font-normal text-secondary">{' '}{t.price.perYearShort}</span>
             )}
           </p>
         </div>

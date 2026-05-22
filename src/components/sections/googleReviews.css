@@ -18,6 +18,10 @@
   border-radius: 32px;
   margin: 0;
 
+  /* Keeps the rounded panel edge legible in dark mode, where the container
+     background matches the page; barely visible against the light page. */
+  border: 1px solid rgba(249, 250, 245, 0.08);
+
   background-color: #0a1517;
   background-image:
     radial-gradient(

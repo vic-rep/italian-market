@@ -13,12 +13,12 @@ export function LifestyleBand() {
         <div className="overflow-hidden rounded-2xl aspect-[4/3] w-full">
           <img
             src="/why-photo.jpg"
-            alt="Person checking their car insurance on a phone"
+            alt={t.lifestyle.imageAlt}
             className="h-full w-full object-cover object-center"
           />
         </div>
         <div className="max-w-xl">
-          <h2 className="text-2xl sm:text-[1.6rem]">{t.lifestyle.headline}</h2>
+          <h2 className="text-2xl sm:text-3xl">{t.lifestyle.headline}</h2>
           <p className="mt-4 text-lg text-secondary">{t.lifestyle.body}</p>
           <ul className="mt-5 space-y-3">
             {t.lifestyle.bullets.map((bullet, index) => {

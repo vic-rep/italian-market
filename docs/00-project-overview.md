@@ -41,7 +41,7 @@ src/
       icons.tsx                    — Shared SVG icon components
     sections/
       TopBar.tsx / Hero.tsx / LifestyleBand.tsx / GoogleReviews.tsx
-      HowItWorks.tsx / WhyItMatters.tsx / WhatIsRca.tsx
+      HowItWorks.tsx / WhatIsRca.tsx
       RegionalPricing.tsx / ItalyHeatmap.tsx / RegionalPriceTable.tsx
       Faq.tsx / RepeatCta.tsx / Footer.tsx / ResultCard.tsx
       googleReviews.css            — Scoped CSS for the carousel section
@@ -119,12 +119,11 @@ Applied to **Hero** and **Footer** sections. Adds the perspective grid at 20% op
 3. `<LifestyleBand />` — photo + lifestyle copy
 4. `<GoogleReviews />` — dark carousel with ratings
 5. `<HowItWorks />` — 3 step cards
-6. `<WhyItMatters />` — muted bg, risk section
+6. `<RegionalPricing />` — bento grid: interactive Italy heatmap + price stats + factors
 7. `<WhatIsRca />` — RC Auto explainer
-8. `<RegionalPricing />` — bento grid: interactive Italy heatmap + price stats + factors
-9. `<Faq />` — details/summary accordion; last answer embeds the regional price table
-10. `<RepeatCta />` — muted bg CTA box
-11. `<Footer />` — dark, logo + links
+8. `<Faq />` — details/summary accordion; last answer embeds the regional price table
+9. `<RepeatCta />` — muted bg CTA box
+10. `<Footer />` — dark, logo + links
 
 ## Container Component
 ```tsx

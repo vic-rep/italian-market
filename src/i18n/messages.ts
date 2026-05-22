@@ -23,16 +23,13 @@ export const messages = {
     lifestyle: {
       headline: 'Your agent, online.',
       body: 'No office, no queue. Check your policy, compare every insurer, and renew at the right price — all from your phone.',
-      bullets: ['No office.', 'No paperwork.', 'No queue.', 'Quick, simple', 'Secure and private.'],
+      bullets: ['No office.', 'No paperwork.', 'No queue.', 'Quick, simple.', 'Secure and private.'],
+      imageAlt: 'Person checking their car insurance on a phone',
     },
     trust: { regulated: 'Licensed & regulated', drivers: '14,000+ drivers' },
     social: {
       heading: 'Zero surprises. Ask those who\'ve already renewed.',
       rating: 'The average among drivers who renewed their RC Auto with us.',
-      review:
-        'Sorted my renewal in five minutes — and an actual person picked up when I called.',
-      regulated: 'A licensed, regulated broker. Reg. [IT number].',
-      humanPromise: 'When you call, a person answers. Not a queue. Not a bot.',
     },
     how: {
       heading: 'How it works',
@@ -47,10 +44,6 @@ export const messages = {
       illExpDate:   '15 Apr 2026',
       illCallLabel: 'Reminder set',
       illCallBody:  'We call 30 days before',
-    },
-    why: {
-      heading: "Driving uninsured isn't just a fine. It's your car on a tow truck.",
-      body: 'In Italy, an expired policy can mean a fine, a suspended plate, and your car impounded. Almost nobody misses the date on purpose — they just forget. We make sure you don’t.',
     },
     rca: {
       heading: 'What is RC Auto?',
@@ -85,6 +78,7 @@ export const messages = {
       perYear: 'per year',
       legendLow: 'Lower',
       legendHigh: 'Higher',
+      perYearShort: '/yr',
     },
     faq: {
       heading: 'Frequently asked questions',
@@ -102,10 +96,8 @@ export const messages = {
     repeatCta: { headline: 'Your plate. Ten seconds. Done.', cta: 'Check for free' },
     footer: {
       companyLine: 'Trusti — a licensed insurance broker. Reg. [IT number].',
-      colProduct: 'Product',
       colCompany: 'Company',
       colLegal: 'Legal',
-      product: ['RC Auto', 'Kasko', 'Compare'],
       company: ['About', 'How it works', 'Contact'],
       legal: ['Privacy', 'Terms', 'Cookie'],
       humanLine: 'Questions? Call us — a person answers. [phone] · [hours]',
@@ -146,16 +138,13 @@ export const messages = {
     lifestyle: {
       headline: 'Il tuo agente, online.',
       body: 'Niente ufficio, niente code. Controlla la polizza, confronta tutte le compagnie e rinnova al prezzo giusto — dal telefono.',
-      bullets: ['Nessun ufficio.', 'Nessuna burocrazia.', 'Nessuna coda.', 'Rapido e semplice', 'Sicuro e riservato.'],
+      bullets: ['Nessun ufficio.', 'Nessuna burocrazia.', 'Nessuna coda.', 'Rapido e semplice.', 'Sicuro e riservato.'],
+      imageAlt: 'Una persona controlla la sua RC Auto dal telefono',
     },
     trust: { regulated: 'Autorizzata e regolamentata', drivers: '14.000+ automobilisti' },
     social: {
       heading: 'Zero sorprese. Chiedilo a chi ha già rinnovato.',
       rating: 'La media di chi ha rinnovato la RC Auto con noi.',
-      review:
-        'Rinnovo sistemato in cinque minuti — e al telefono ha risposto una persona vera.',
-      regulated: 'Broker autorizzato e regolamentato. Iscr. [n. IT].',
-      humanPromise: 'Quando chiami, risponde una persona. Non una coda. Non un bot.',
     },
     how: {
       heading: 'Come funziona',
@@ -170,10 +159,6 @@ export const messages = {
       illExpDate:   '15 apr 2026',
       illCallLabel: 'Promemoria attivato',
       illCallBody:  'Ti chiamiamo 30 giorni prima',
-    },
-    why: {
-      heading: "Guidare senza assicurazione non è solo una multa. È la tua auto sul carro attrezzi.",
-      body: 'In Italia, una polizza scaduta può voler dire multa, targa sospesa e auto sequestrata. Quasi nessuno salta la scadenza apposta — semplicemente la dimentica. Noi facciamo in modo che non succeda.',
     },
     rca: {
       heading: "Cos'è la RC Auto?",
@@ -209,6 +194,7 @@ export const messages = {
       perYear: "all'anno",
       legendLow: 'Più basso',
       legendHigh: 'Più alto',
+      perYearShort: '/anno',
     },
     faq: {
       heading: 'Domande frequenti',
@@ -226,10 +212,8 @@ export const messages = {
     repeatCta: { headline: 'La tua targa. Dieci secondi. Fatto.', cta: 'Controlla gratis' },
     footer: {
       companyLine: 'Trusti — broker assicurativo autorizzato. Iscr. [n. IT].',
-      colProduct: 'Prodotti',
       colCompany: 'Azienda',
       colLegal: 'Note legali',
-      product: ['RC Auto', 'Kasko', 'Confronta'],
       company: ['Chi siamo', 'Come funziona', 'Contatti'],
       legal: ['Privacy', 'Termini', 'Cookie'],
       humanLine: 'Domande? Chiamaci — risponde una persona. [telefono] · [orari]',
@@ -274,16 +258,13 @@ export const messages = {
     lifestyle: {
       headline: 'Твоят агент, онлайн.',
       body: 'Без офис, без опашки. Провери полицата, сравни всички застрахователи и поднови на правилната цена — направо от телефона.',
-      bullets: ['Без офис.', 'Без бюрокрация.', 'Без опашки.', 'Бързо и лесно', 'Сигурно и поверително.'],
+      bullets: ['Без офис.', 'Без бюрокрация.', 'Без опашки.', 'Бързо и лесно.', 'Сигурно и поверително.'],
+      imageAlt: 'Човек проверява автозастраховката си от телефона',
     },
     trust: { regulated: 'Лицензиран и регулиран', drivers: '14 000+ шофьори' },
     social: {
       heading: 'Нула изненади. Питай тези, които вече са подновили.',
       rating: 'Средната оценка на шофьорите, подновили с нас.',
-      review:
-        'Подновиха ми полицата за пет минути — и когато се обадих, вдигна истински човек.',
-      regulated: 'Лицензиран и регулиран брокер. Рег. № [номер].',
-      humanPromise: 'Когато се обадиш, вдига човек. Не опашка. Не бот.',
     },
     how: {
       heading: 'Как работи',
@@ -298,10 +279,6 @@ export const messages = {
       illExpDate:   '15 апр 2026',
       illCallLabel: 'Напомняне активирано',
       illCallBody:  'Обаждаме се 30 дни преди',
-    },
-    why: {
-      heading: 'Да караш без застраховка не е само глоба. Това е колата ти на пътна помощ.',
-      body: 'В Италия изтекла полица може да означава глоба, спрян регистрационен номер и иззета кола. Почти никой не пропуска датата нарочно — просто забравя. Ние се грижим да не ти се случи.',
     },
     rca: {
       heading: 'Какво е Гражданска отговорност?',
@@ -341,6 +318,7 @@ export const messages = {
       perYear: 'на година',
       legendLow: 'По-ниско',
       legendHigh: 'По-високо',
+      perYearShort: '/год.',
     },
     faq: {
       heading: 'Често задавани въпроси',
@@ -358,10 +336,8 @@ export const messages = {
     repeatCta: { headline: 'Твоят номер. Десет секунди. Готово.', cta: 'Провери безплатно' },
     footer: {
       companyLine: 'Trusti — лицензиран застрахователен брокер. Рег. № [номер].',
-      colProduct: 'Продукти',
       colCompany: 'Компания',
       colLegal: 'Правни',
-      product: ['Гражданска отговорност', 'Каско', 'Сравни'],
       company: ['За нас', 'Как работи', 'Контакти'],
       legal: ['Поверителност', 'Условия', 'Бисквитки'],
       humanLine: 'Въпроси? Обади ни се — вдига човек. [телефон] · [часове]',

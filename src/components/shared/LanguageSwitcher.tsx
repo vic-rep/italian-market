@@ -11,7 +11,7 @@ export function LanguageSwitcher() {
         aria-label={t.ui.language}
         value={locale}
         onChange={(event) => setLocale(event.target.value as Locale)}
-        className="cursor-pointer appearance-none rounded-full border border-border bg-surface py-1.5 pr-8 pl-3.5 text-sm font-medium text-primary transition-colors hover:border-primary/30"
+        className="cursor-pointer appearance-none rounded-full border border-border bg-surface py-2 pr-8 pl-3.5 text-sm font-medium text-primary transition-colors hover:border-primary/30"
       >
         {LOCALES.map((code) => (
           <option key={code} value={code}>
