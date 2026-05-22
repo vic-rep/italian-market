@@ -1,0 +1,284 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   GoogleReviews — adapted from Design-system template for Italian-market.
+   All Design-system CSS-variable references resolved to concrete values.
+   Brand changes: orange glow → purple; surface colours match olive-black palette.
+───────────────────────────────────────────────────────────────────────────── */
+
+.gr-section {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 48px 0;
+}
+
+/* ── Dark rounded container ───────────────────────────────────────────────── */
+
+.gr-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  margin: 0;
+
+  background-color: #0a1517;
+  background-image:
+    radial-gradient(
+      ellipse at 50% 120%,
+      rgba(155, 93, 229, 0.14) 0%,
+      rgba(155, 93, 229, 0) 65%
+    );
+  padding: 64px;
+
+  color: #f9faf5;
+}
+
+/* Perspective-grid overlay — same 20% opacity treatment as Hero + Footer */
+.gr-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/perspective-grid.png');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Inner layout: left text + right cards ────────────────────────────────── */
+
+.gr-layout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ── Left column ──────────────────────────────────────────────────────────── */
+
+.gr-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  width: 354px;
+  overflow: hidden;
+}
+
+.gr-google-badge {
+  display: block;
+  height: 84px;
+  width: auto;
+}
+
+.gr-heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* ── Right column ─────────────────────────────────────────────────────────── */
+
+.gr-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .gr-right--mobile .gr-cards-viewport {
+    overflow: visible;
+    width: calc(100% + 64px);
+  }
+}
+
+/* ── Arrow nav ────────────────────────────────────────────────────────────── */
+
+.gr-arrows {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.gr-arrow-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #f9faf5;
+  transition: background 150ms ease, opacity 150ms ease;
+  padding: 10px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.gr-arrow-btn:hover:not(:disabled) {
+  background: rgba(249, 250, 245, 0.1);
+}
+
+.gr-arrow-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+/* ── Cards viewport ───────────────────────────────────────────────────────── */
+
+.gr-cards-viewport {
+  position: relative;
+  width: 100%;
+  height: 373px;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.gr-cards-viewport:active {
+  cursor: grabbing;
+}
+
+/* ── Individual review card ───────────────────────────────────────────────── */
+
+.gr-card {
+  flex: 1 0 0;
+  min-width: 0;
+  height: 373px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 24px;
+  border-radius: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.gr-card--surface           { background: #121f22; }
+.gr-card--surface-adjacent  { background: #1c2e32; }
+.gr-card--surface-adjacent-2{ background: #162428; }
+
+/* ── Card body: stars + review text ──────────────────────────────────────── */
+
+.gr-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+  flex: 1 0 0;
+  min-height: 1px;
+  min-width: 1px;
+  width: 100%;
+}
+
+/* ── Stars ────────────────────────────────────────────────────────────────── */
+
+.gr-stars {
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.gr-star {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.gr-star svg {
+  position: absolute;
+  top: 7.99%;
+  right: 9.86%;
+  bottom: 15.31%;
+  left: 9.86%;
+  width: auto;
+  height: auto;
+}
+
+/* ── Review text ──────────────────────────────────────────────────────────── */
+
+.gr-card-text {
+  height: 219px;
+  overflow: hidden;
+  min-width: 100%;
+  width: 100%;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: rgba(249, 250, 245, 0.85);
+}
+
+/* ── Reviewer name ────────────────────────────────────────────────────────── */
+
+.gr-reviewer-name {
+  flex-shrink: 0;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 24px;
+  color: rgba(249, 250, 245, 0.6);
+}
+
+/* ── JS-forced column layout ──────────────────────────────────────────────── */
+
+.gr-layout--mobile {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.gr-layout--mobile .gr-left  { width: 100%; }
+
+.gr-layout--mobile .gr-right {
+  width: 100%;
+  align-items: flex-start;
+}
+
+.gr-layout--mobile .gr-right--mobile .gr-cards-viewport {
+  overflow: visible;
+  width: calc(100% + 64px);
+}
+
+/* ── Mobile ──────────────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .gr-container {
+    border-radius: 24px;
+    margin: 0;
+    padding: 40px 20px;
+  }
+
+  .gr-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .gr-left  { width: 100%; }
+
+  .gr-right {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .gr-right--mobile .gr-cards-viewport {
+    overflow: visible;
+    width: calc(100% + 20px);
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .gr-cards-viewport { cursor: default; }
+}
