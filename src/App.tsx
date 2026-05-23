@@ -5,6 +5,10 @@ import { TopBar } from './components/sections/TopBar'
 import { Footer } from './components/sections/Footer'
 import { HomePage } from './pages/HomePage'
 import { AboutPage } from './pages/AboutPage'
+import { ContactPage } from './pages/ContactPage'
+import { PrivacyPage } from './pages/PrivacyPage'
+import { TermsPage } from './pages/TermsPage'
+import { CookiesPage } from './pages/CookiesPage'
 
 function Layout() {
   return (
@@ -14,6 +18,10 @@ function Layout() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/cookies" element={<CookiesPage />} />
         </Routes>
       </main>
       <Footer />

@@ -100,8 +100,8 @@ export const messages = {
       companyLine: 'Trusti — a licensed insurance broker. Reg. [IT number].',
       colCompany: 'Company',
       colLegal: 'Legal',
-      company: ['About', 'How it works', 'Contact'],
-      legal: ['Privacy', 'Terms', 'Cookie'],
+      company: [{ label: 'About', href: '/about' }, { label: 'Contact', href: '/contact' }],
+      legal: [{ label: 'Privacy', href: '/privacy' }, { label: 'Terms', href: '/terms' }, { label: 'Cookie', href: '/cookies' }],
       humanLine: 'Questions? Call us — a person answers. [phone] · [hours]',
     },
     result: {
@@ -269,8 +269,8 @@ export const messages = {
       companyLine: 'Trusti — broker assicurativo autorizzato. Iscr. [n. IT].',
       colCompany: 'Azienda',
       colLegal: 'Note legali',
-      company: ['Chi siamo', 'Come funziona', 'Contatti'],
-      legal: ['Privacy', 'Termini', 'Cookie'],
+      company: [{ label: 'Chi siamo', href: '/about' }, { label: 'Contatti', href: '/contact' }],
+      legal: [{ label: 'Privacy', href: '/privacy' }, { label: 'Termini', href: '/terms' }, { label: 'Cookie', href: '/cookies' }],
       humanLine: 'Domande? Chiamaci — risponde una persona. [telefono] · [orari]',
     },
     result: {
@@ -446,8 +446,8 @@ export const messages = {
       companyLine: 'Trusti — лицензиран застрахователен брокер. Рег. № [номер].',
       colCompany: 'Компания',
       colLegal: 'Правни',
-      company: ['За нас', 'Как работи', 'Контакти'],
-      legal: ['Поверителност', 'Условия', 'Бисквитки'],
+      company: [{ label: 'За нас', href: '/about' }, { label: 'Контакти', href: '/contact' }],
+      legal: [{ label: 'Поверителност', href: '/privacy' }, { label: 'Условия', href: '/terms' }, { label: 'Бисквитки', href: '/cookies' }],
       humanLine: 'Въпроси? Обади ни се — вдига човек. [телефон] · [часове]',
     },
     result: {

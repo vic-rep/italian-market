@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useI18n } from '../../i18n/I18nContext'
 import { Container } from '../shared/Container'
 import { PhoneIcon, FacebookIcon, InstagramIcon, LinkedinIcon } from '../shared/icons'
@@ -33,13 +34,13 @@ export function Footer() {
                 className="flex flex-wrap gap-x-6 gap-y-2"
               >
                 {group.links.map((link) => (
-                  <a
-                    key={link}
-                    href="#"
+                  <Link
+                    key={link.href}
+                    to={link.href}
                     className="text-sm text-footer-text/70 transition-colors hover:text-footer-text"
                   >
-                    {link}
-                  </a>
+                    {link.label}
+                  </Link>
                 ))}
               </nav>
             ))}
