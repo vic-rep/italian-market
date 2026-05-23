@@ -158,10 +158,10 @@ export const messages = {
       promises: {
         heading: 'What you can expect from us',
         items: [
-          { title: 'The verdict, not a list',         desc: 'We compare every insurer and tell you the one to pick.' },
-          { title: 'A person answers',                desc: 'Not a queue. Not a bot.' },
-          { title: 'Two minutes, not an afternoon',   desc: 'All of it, on your phone.' },
-          { title: 'When it goes wrong, we sort it',  desc: "We fix it — we don't sell you more." },
+          { title: 'Compare all. Save more.',       desc: 'Every insurer, side by side — so your money goes further.' },
+          { title: 'Fast. Clear. Yours.',           desc: 'Insurance that works the way everything else on your phone does.' },
+          { title: 'Two minutes, not an afternoon', desc: 'All of it, on your phone.' },
+          { title: 'With you, start to finish.',    desc: 'A renewal, a question, a claim — someone here always picks up.' },
         ],
       },
       faq: [
@@ -327,10 +327,10 @@ export const messages = {
       promises: {
         heading: 'Cosa puoi aspettarti da noi',
         items: [
-          { title: 'Il verdetto, non una lista',          desc: 'Confrontiamo ogni assicuratore e ti diciamo quale scegliere.' },
-          { title: 'Risponde una persona',                desc: 'Niente code. Niente bot.' },
+          { title: 'Confronta tutto. Risparmia di più.',  desc: "Tutte le compagnie, una accanto all'altra — così i tuoi soldi rendono di più." },
+          { title: 'Veloce. Chiaro. Tuo.',                desc: 'Un\'assicurazione che funziona come tutto il resto sul tuo telefono.' },
           { title: 'Due minuti, non un pomeriggio',       desc: 'Tutto dal tuo telefono.' },
-          { title: 'Quando va storto, lo sistemiamo noi', desc: 'Lo risolviamo — non ti vendiamo altro.' },
+          { title: "Con te, dall'inizio alla fine.",      desc: 'Un rinnovo, una domanda, un sinistro — da noi c\'è sempre qualcuno che risponde.' },
         ],
       },
       faq: [
@@ -504,10 +504,10 @@ export const messages = {
       promises: {
         heading: 'Какво да очакваш от нас',
         items: [
-          { title: 'Присъдата, не списъкът',        desc: 'Сравняваме всеки застраховател и ти казваме кого да избереш.' },
-          { title: 'Отговаря човек',                desc: 'Не опашка. Не бот.' },
-          { title: 'Две минути, не цял следобед',   desc: 'Всичко от телефона ти.' },
-          { title: 'Когато се обърка, ние оправяме', desc: 'Оправяме го — не ти продаваме повече.' },
+          { title: 'Сравни всичко. Спести повече.',   desc: 'Всички застрахователи, един до друг — за да отиват парите ти по-далеч.' },
+          { title: 'Бързо. Ясно. Твое.',              desc: 'Застраховка, която работи така, както всичко останало на телефона ти.' },
+          { title: 'Две минути, не цял следобед',     desc: 'Всичко от телефона ти.' },
+          { title: 'С теб, от начало до край.',       desc: 'Подновяване, въпрос, щета — от наша страна винаги има някой, който вдига.' },
         ],
       },
       faq: [

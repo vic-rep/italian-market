@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'motion/react'
 import { useI18n } from '../i18n/I18nContext'
 import { Container } from '../components/shared/Container'
 import { ChevronDownIcon } from '../components/shared/icons'
@@ -145,13 +146,37 @@ export function AboutPage() {
           <h2 id="about-promises-heading" className="text-3xl font-semibold sm:text-4xl">
             {a.promises.heading}
           </h2>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {a.promises.items.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-border bg-surface p-6">
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-secondary">{item.desc}</p>
-              </div>
-            ))}
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {a.promises.items.map((item, i) => {
+              const isWide = i === 0 || i === 3
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.4, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ y: -3, transition: { duration: 0.18 } }}
+                  className={[
+                    'relative overflow-hidden rounded-2xl',
+                    isWide
+                      ? 'bg-muted p-8 sm:col-span-2'
+                      : 'border border-border bg-surface p-6',
+                  ].join(' ')}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute right-5 top-4 select-none text-7xl font-bold leading-none text-primary/[0.04]"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className={['relative font-semibold', isWide ? 'text-xl' : 'text-base'].join(' ')}>
+                    {item.title}
+                  </h3>
+                  <p className="relative mt-2 max-w-sm text-secondary">{item.desc}</p>
+                </motion.div>
+              )
+            })}
           </div>
         </Container>
       </section>
