@@ -1,0 +1,279 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useI18n } from '../i18n/I18nContext'
+import { Container } from '../components/shared/Container'
+import { ChevronDownIcon } from '../components/shared/icons'
+
+// ─── Placeholder image ────────────────────────────────────────────────────────
+function ImgPlaceholder({
+  aspect,
+  caption,
+  className = '',
+}: {
+  aspect: string
+  caption: string
+  className?: string
+}) {
+  return (
+    <div
+      className={`flex items-center justify-center rounded-2xl bg-muted text-center ${aspect} ${className}`}
+      role="img"
+      aria-label={caption}
+    >
+      <p className="px-6 text-sm text-tertiary">{caption}</p>
+    </div>
+  )
+}
+
+// ─── Certificate badge ─────────────────────────────────────────────────────────
+function CertBadge({ regNo, ribbon, authority }: { regNo: string; ribbon: string; authority: string }) {
+  return (
+    <div className="flex justify-center lg:justify-start">
+      <svg
+        viewBox="0 0 200 200"
+        className="w-52 h-52 drop-shadow-lg"
+        aria-label={`${ribbon} — ${authority} ${regNo}`}
+        role="img"
+      >
+        {/* outer ring */}
+        <circle cx="100" cy="100" r="96" fill="#b9e856" />
+        <circle cx="100" cy="100" r="90" fill="none" stroke="#173404" strokeWidth="1.5" />
+        <circle cx="100" cy="100" r="84" fill="#f9faf5" />
+
+        {/* checkmark */}
+        <polyline
+          points="68,102 88,122 132,78"
+          fill="none"
+          stroke="#173404"
+          strokeWidth="7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+
+        {/* reg number */}
+        <text x="100" y="152" textAnchor="middle" fontSize="9" fontFamily="Montserrat,sans-serif" fontWeight="600" fill="#0a1517">
+          {regNo}
+        </text>
+
+        {/* ribbon arc — bottom */}
+        <path id="ribbon-arc" d="M 18,100 A 82,82 0 0,0 182,100" fill="none" />
+        <text fontSize="7.5" fontFamily="Montserrat,sans-serif" fontWeight="700" fill="#173404" letterSpacing="1.5">
+          <textPath href="#ribbon-arc" startOffset="50%" textAnchor="middle">{ribbon}</textPath>
+        </text>
+
+        {/* authority arc — top */}
+        <path id="auth-arc" d="M 24,96 A 76,76 0 0,1 176,96" fill="none" />
+        <text fontSize="6.5" fontFamily="Montserrat,sans-serif" fontWeight="600" fill="#5a6566" letterSpacing="0.5">
+          <textPath href="#auth-arc" startOffset="50%" textAnchor="middle">{authority}</textPath>
+        </text>
+      </svg>
+    </div>
+  )
+}
+
+// ─── FAQ accordion item ────────────────────────────────────────────────────────
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className="border-b border-border">
+      <button
+        type="button"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full cursor-pointer items-center justify-between gap-4 py-4 text-left text-base font-semibold text-primary"
+      >
+        {q}
+        <ChevronDownIcon
+          className={`h-5 w-5 shrink-0 text-secondary transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+        />
+      </button>
+      {open && (
+        <div className="pb-4 text-secondary">
+          <p>{a}</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Page ──────────────────────────────────────────────────────────────────────
+export function AboutPage() {
+  const { t } = useI18n()
+  const a = t.about
+
+  return (
+    <>
+      {/* 1 · Hero */}
+      <section className="py-16 lg:py-24" aria-labelledby="about-hero-heading">
+        <Container>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <h1
+                id="about-hero-heading"
+                className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl"
+              >
+                {a.hero.headline}
+              </h1>
+              <p className="mt-6 text-lg leading-relaxed text-secondary">{a.hero.subhead}</p>
+            </div>
+            <ImgPlaceholder
+              aspect="aspect-[4/3]"
+              caption="Founders / team in a real workspace — warm, human, confident, not corporate stock."
+            />
+          </div>
+        </Container>
+      </section>
+
+      {/* 2 · Origin */}
+      <section className="py-16 bg-muted" aria-labelledby="about-origin-heading">
+        <Container>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <ImgPlaceholder
+              aspect="aspect-[4/3]"
+              caption="Founders, candid — the ex-Uber story made human."
+              className="order-last lg:order-first"
+            />
+            <div>
+              <h2 id="about-origin-heading" className="text-3xl font-semibold sm:text-4xl">
+                {a.origin.heading}
+              </h2>
+              <p className="mt-5 leading-relaxed text-secondary">{a.origin.body}</p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 3 · Stats band */}
+      <section className="border-y border-border bg-stats-band py-14" aria-label="Key statistics">
+        <Container>
+          <dl className="flex flex-col items-center gap-10 sm:flex-row sm:justify-center sm:gap-20">
+            {a.stats.map((s) => (
+              <div key={s.label} className="text-center">
+                <dt className="text-5xl font-semibold text-action">{s.value}</dt>
+                <dd className="mt-2 text-sm font-medium text-footer-text/80">{s.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </Container>
+      </section>
+
+      {/* 4 · Licence intro */}
+      <section className="py-16" aria-labelledby="about-licence-heading">
+        <Container className="max-w-2xl text-center">
+          <h2 id="about-licence-heading" className="text-3xl font-semibold sm:text-4xl">
+            {a.licence.heading}
+          </h2>
+          <p className="mt-5 leading-relaxed text-secondary">{a.licence.body}</p>
+        </Container>
+      </section>
+
+      {/* 5 · Certificate */}
+      <section className="py-16 bg-muted" aria-labelledby="about-cert-heading">
+        <Container>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <CertBadge
+              regNo={a.certificate.regNo}
+              ribbon={a.certificate.badgeLabel}
+              authority={a.certificate.authority}
+            />
+            <div>
+              <h2 id="about-cert-heading" className="text-3xl font-semibold sm:text-4xl">
+                {a.certificate.heading}
+              </h2>
+              <p className="mt-5 leading-relaxed text-secondary">{a.certificate.body}</p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 6 · Team */}
+      <section className="py-16" aria-labelledby="about-team-heading">
+        <Container>
+          <h2 id="about-team-heading" className="text-3xl font-semibold sm:text-4xl">
+            {a.team.heading}
+          </h2>
+          <p className="mt-4 max-w-2xl leading-relaxed text-secondary">{a.team.body}</p>
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="flex flex-col items-center gap-3">
+                <div
+                  className="aspect-square w-full rounded-2xl bg-muted"
+                  role="img"
+                  aria-label={`Team member ${i + 1} portrait — real person, natural light`}
+                />
+                <span className="text-xs text-tertiary">Team member {i + 1}</span>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* 7 · Europe / ambition — lavender band */}
+      <section className="bg-accent py-16 text-on-accent" aria-labelledby="about-europe-heading">
+        <Container>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <h2 id="about-europe-heading" className="text-3xl font-semibold text-on-accent sm:text-4xl">
+                {a.europe.heading}
+              </h2>
+              <p className="mt-5 leading-relaxed text-on-accent/85">{a.europe.body}</p>
+            </div>
+            <ImgPlaceholder
+              aspect="aspect-[4/3]"
+              caption="Topographic map of Europe — brand visual language; Bulgaria + Italy active."
+              className="bg-accent/20 text-on-accent/60"
+            />
+          </div>
+        </Container>
+      </section>
+
+      {/* 8 · Promises */}
+      <section className="py-16" aria-labelledby="about-promises-heading">
+        <Container>
+          <h2 id="about-promises-heading" className="text-3xl font-semibold sm:text-4xl">
+            {a.promises.heading}
+          </h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            {a.promises.items.map((item) => (
+              <div key={item.title} className="rounded-2xl border border-border bg-surface p-6">
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="mt-2 text-secondary">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* 9 · FAQ */}
+      <section className="py-16 bg-muted" aria-labelledby="about-faq-heading">
+        <Container className="max-w-3xl">
+          <h2 id="about-faq-heading" className="text-3xl font-semibold sm:text-4xl">
+            FAQ
+          </h2>
+          <div className="mt-6">
+            {a.faq.map((item) => (
+              <FaqItem key={item.q} q={item.q} a={item.a} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* 10 · Closing CTA */}
+      <section className="py-16" aria-labelledby="about-cta-heading">
+        <Container className="max-w-2xl text-center">
+          <h2 id="about-cta-heading" className="text-3xl font-semibold sm:text-4xl">
+            {a.cta.headline}
+          </h2>
+          <div className="mt-8">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 rounded-xl bg-action px-8 py-4 text-base font-semibold text-on-action transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-action"
+            >
+              {a.cta.button} →
+            </Link>
+          </div>
+        </Container>
+      </section>
+    </>
+  )
+}

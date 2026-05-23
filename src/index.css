@@ -23,6 +23,7 @@
   --color-on-accent: var(--c-on-accent);
   --color-footer: var(--c-footer-bg);
   --color-footer-text: var(--c-footer-text);
+  --color-stats-band: var(--c-stats-band);
 }
 
 :root {
@@ -39,6 +40,7 @@
   --c-on-accent: #ffffff;
   --c-footer-bg: #0a1517;
   --c-footer-text: #f9faf5;
+  --c-stats-band: #0a1517;
   color-scheme: light;
 }
 
@@ -56,6 +58,7 @@
   --c-on-accent: #ffffff;
   --c-footer-bg: #060d0e;
   --c-footer-text: #f9faf5;
+  --c-stats-band: #121f22;
   color-scheme: dark;
 }
 
