@@ -138,24 +138,6 @@ export function AboutPage() {
         </Container>
       </section>
 
-      {/* 7 · Europe / ambition */}
-      <section className="py-16 bg-muted" aria-labelledby="about-europe-heading">
-        <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <div className="mb-4 h-1 w-10 rounded-full bg-accent" aria-hidden="true" />
-              <h2 id="about-europe-heading" className="text-3xl font-semibold sm:text-4xl">
-                {a.europe.heading}
-              </h2>
-              <p className="mt-5 leading-relaxed text-secondary">{a.europe.body}</p>
-            </div>
-            <ImgPlaceholder
-              aspect="aspect-[4/3]"
-              caption="Topographic map of Europe — brand visual language; Bulgaria + Italy active."
-            />
-          </div>
-        </Container>
-      </section>
 
       {/* 8 · Promises */}
       <section className="py-16" aria-labelledby="about-promises-heading">
