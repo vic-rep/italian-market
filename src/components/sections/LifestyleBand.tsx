@@ -12,7 +12,7 @@ export function LifestyleBand() {
       <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <div className="overflow-hidden rounded-2xl aspect-[4/3] w-full">
           <img
-            src="/why-photo.jpg"
+            src="/the-italian.png"
             alt={t.lifestyle.imageAlt}
             className="h-full w-full object-cover object-center"
           />

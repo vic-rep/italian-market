@@ -48,7 +48,9 @@ export const messages = {
     rca: {
       heading: 'What is RC Auto?',
       body: "RC Auto — Responsabilità Civile Auto — is mandatory in Italy. It covers the damage you cause to other people when you're driving. Not your own car. Here's exactly what's in, and what's not.",
-      kasko: 'Ready to get insured? Call us now — [phone]',
+      ctaTitle: 'Is your RC Auto in order?',
+      ctaButton: 'Call us now',
+      ctaNote: 'A real person answers, not a bot.',
       covered: ['Injury to other people', 'Other vehicles and property', 'Your passengers'],
       notCovered: [
         'Your own car',
@@ -163,7 +165,9 @@ export const messages = {
     rca: {
       heading: "Cos'è la RC Auto?",
       body: 'La RC Auto — Responsabilità Civile Auto — è obbligatoria in Italia. Copre i danni che provochi agli altri quando guidi. Non la tua auto. Ecco cosa include, e cosa no.',
-      kasko: 'Pronto ad assicurarti? Chiamaci subito — [telefono]',
+      ctaTitle: 'La tua RC Auto è in regola?',
+      ctaButton: 'Chiamaci ora',
+      ctaNote: 'Risponde una persona, non un bot.',
       covered: ['Lesioni ad altre persone', 'Veicoli e cose di terzi', 'I tuoi passeggeri'],
       notCovered: [
         'La tua auto',
@@ -283,7 +287,9 @@ export const messages = {
     rca: {
       heading: 'Какво е Гражданска отговорност?',
       body: 'Гражданската отговорност е задължителна. Покрива щетите, които причиняваш на други хора, докато шофираш. Не твоята кола. Ето какво включва и какво не.',
-      kasko: 'Готов да се застраховаш? Обади ни се сега — [телефон]',
+      ctaTitle: 'Твоята Гражданска отговорност наред ли е?',
+      ctaButton: 'Обади ни се сега',
+      ctaNote: 'Отговаря ти човек, не бот.',
       covered: [
         'Телесни повреди на трети лица',
         'Чужди превозни средства и имущество',
