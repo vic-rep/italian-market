@@ -104,30 +104,20 @@ export function AboutPage() {
         </Container>
       </section>
 
-      {/* 4 · Licence intro */}
-      <section className="py-16" aria-labelledby="about-licence-heading">
-        <Container className="max-w-2xl text-center">
-          <h2 id="about-licence-heading" className="text-3xl font-semibold sm:text-4xl">
-            {a.licence.heading}
-          </h2>
-          <p className="mt-5 leading-relaxed text-secondary">{a.licence.body}</p>
-        </Container>
-      </section>
-
-      {/* 5 · Certificate */}
-      <section className="py-16 bg-muted" aria-labelledby="about-cert-heading">
+      {/* 4 · Licence + regulation (combined) */}
+      <section className="py-16 bg-muted" aria-labelledby="about-licence-heading">
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <ImgPlaceholder
               aspect="aspect-square"
-              caption="FSC certificate badge — real asset to be provided."
+              caption="FSC certificate / licence visual — real asset to be provided."
               className="max-w-xs mx-auto lg:mx-0"
             />
             <div>
-              <h2 id="about-cert-heading" className="text-3xl font-semibold sm:text-4xl">
-                {a.certificate.heading}
+              <h2 id="about-licence-heading" className="text-3xl font-semibold sm:text-4xl">
+                {a.licence.heading}
               </h2>
-              <p className="mt-5 leading-relaxed text-secondary">{a.certificate.body}</p>
+              <p className="mt-5 leading-relaxed text-secondary">{a.licence.body}</p>
             </div>
           </div>
         </Container>

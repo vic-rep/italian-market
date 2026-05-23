@@ -137,8 +137,8 @@ export const messages = {
         { value: '4.9',    label: 'on Google · 981 reviews' },
       ],
       licence: {
-        heading: 'A licensed, pan-European broker.',
-        body: 'Licensed by the Financial Supervisory Commission and passported across the EU. Live today in Bulgaria and Italy — building for the rest.',
+        heading: 'Licensed in Europe. Responsible to you.',
+        body: "We're authorized by the Financial Supervisory Commission and passported to operate across the EU — live today in Bulgaria and Italy, building for the rest. That licence isn't just paperwork. It means we're legally obliged to give you an honest recommendation, protect your data, and answer for every policy we place — to you and to the regulator.",
       },
       certificate: {
         heading: 'Authorized. Regulated. Responsible to you.',
@@ -306,8 +306,8 @@ export const messages = {
         { value: '4.9',    label: 'su Google · 981 recensioni' },
       ],
       licence: {
-        heading: 'Un broker autorizzato, attivo in tutta Europa.',
-        body: "Autorizzati dalla Financial Supervisory Commission e operativi in tutta l'UE. Attivi oggi in Bulgaria e Italia — e stiamo costruendo per il resto.",
+        heading: 'Autorizzati in Europa. Responsabili verso di te.',
+        body: "Siamo autorizzati dalla Financial Supervisory Commission e abilitati a operare in tutta l'UE — attivi oggi in Bulgaria e Italia, in crescita verso il resto. Quella licenza non è burocrazia. Significa che siamo giuridicamente obbligati a darti una scelta onesta, proteggere i tuoi dati e rispondere di ogni polizza — davanti a te e al regolatore.",
       },
       certificate: {
         heading: 'Autorizzati. Regolamentati. Responsabili verso di te.',
@@ -483,8 +483,8 @@ export const messages = {
         { value: '4.9',    label: 'в Google · 981 отзива' },
       ],
       licence: {
-        heading: 'Лицензиран брокер за цяла Европа.',
-        body: 'Лицензирани от Комисията за финансов надзор с паспорт за целия ЕС. Работим в България и Италия днес — и изграждаме останалото.',
+        heading: 'Лицензирани в Европа. Отговорни пред теб.',
+        body: 'Лицензирани сме от Комисията за финансов надзор и упълномощени да работим в целия ЕС — активни в България и Италия, и изграждаме останалото. Лицензът не е просто формалност. Означава, че сме задължени по закон да ти дадем честна препоръка, да защитим данните ти и да носим отговорност за всяка полица — пред теб и пред регулатора.',
       },
       certificate: {
         heading: 'Упълномощени. Регулирани. Отговорни пред теб.',
