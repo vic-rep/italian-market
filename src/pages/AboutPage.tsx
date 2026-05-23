@@ -25,46 +25,120 @@ function ImgPlaceholder({
   )
 }
 
+// ─── Certificate badge helpers ────────────────────────────────────────────────
+function starPath(cx: number, cy: number, R: number, r: number): string {
+  const pts: string[] = []
+  for (let i = 0; i < 10; i++) {
+    const a = (i * Math.PI) / 5 - Math.PI / 2
+    const radius = i % 2 === 0 ? R : r
+    pts.push(`${(cx + radius * Math.cos(a)).toFixed(2)},${(cy + radius * Math.sin(a)).toFixed(2)}`)
+  }
+  return `M ${pts.join(' L ')} Z`
+}
+
 // ─── Certificate badge ─────────────────────────────────────────────────────────
 function CertBadge({ regNo, ribbon, authority }: { regNo: string; ribbon: string; authority: string }) {
+  const cx = 110
+  const cy = 110
+
+  // 72 tick marks, major tick every 9th (8 major = every 45°)
+  const ticks = Array.from({ length: 72 }, (_, i) => {
+    const major = i % 9 === 0
+    const angle = (i * 2 * Math.PI) / 72
+    const r1 = major ? 84 : 91
+    return {
+      x1: cx + r1 * Math.cos(angle),
+      y1: cy + r1 * Math.sin(angle),
+      x2: cx + 103 * Math.cos(angle),
+      y2: cy + 103 * Math.sin(angle),
+      major,
+    }
+  })
+
   return (
     <div className="flex justify-center lg:justify-start">
       <svg
-        viewBox="0 0 200 200"
-        className="w-52 h-52 drop-shadow-lg"
+        viewBox="0 0 220 220"
+        className="w-56 h-56"
         aria-label={`${ribbon} — ${authority} ${regNo}`}
         role="img"
       >
-        {/* outer ring */}
-        <circle cx="100" cy="100" r="96" fill="#b9e856" />
-        <circle cx="100" cy="100" r="90" fill="none" stroke="#173404" strokeWidth="1.5" />
-        <circle cx="100" cy="100" r="84" fill="#f9faf5" />
+        <defs>
+          <radialGradient id="cb-green" cx="46%" cy="36%" r="60%">
+            <stop offset="0%" stopColor="#d5f272" />
+            <stop offset="52%" stopColor="#b9e856" />
+            <stop offset="100%" stopColor="#89b01c" />
+          </radialGradient>
+          <radialGradient id="cb-face" cx="42%" cy="35%" r="64%">
+            <stop offset="0%" stopColor="#fefff8" />
+            <stop offset="100%" stopColor="#eff1e9" />
+          </radialGradient>
+          <filter id="cb-shadow" x="-18%" y="-18%" width="136%" height="136%">
+            <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#0a1517" floodOpacity="0.28" />
+          </filter>
+          {/* Authority text: CW over the top — semicircle, baseline at r=62 from centre */}
+          <path id="cb-auth" d="M 48,110 A 62,62 0 0,1 172,110" />
+          {/* Ribbon text: CCW under the bottom — semicircle, baseline at r=76 from centre */}
+          <path id="cb-ribbon" d="M 34,110 A 76,76 0 0,0 186,110" />
+        </defs>
 
-        {/* checkmark */}
+        {/* Outer green disc with drop shadow */}
+        <circle cx={cx} cy={cy} r="106" fill="url(#cb-green)" filter="url(#cb-shadow)" />
+
+        {/* Certification dial — tick marks on the green band */}
+        {ticks.map((t, i) => (
+          <line
+            key={i}
+            x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2}
+            stroke={t.major ? '#1d4803' : '#3b6a09'}
+            strokeWidth={t.major ? 1.8 : 0.75}
+            strokeLinecap="round"
+          />
+        ))}
+
+        {/* Inner porcelain face */}
+        <circle cx={cx} cy={cy} r="82" fill="url(#cb-face)" />
+
+        {/* Pressed-medal inner rings */}
+        <circle cx={cx} cy={cy} r="79" fill="none" stroke="#173404" strokeWidth="0.7" opacity="0.16" />
+        <circle cx={cx} cy={cy} r="76" fill="none" stroke="#173404" strokeWidth="0.4" opacity="0.10" />
+
+        {/* Bold checkmark */}
         <polyline
-          points="68,102 88,122 132,78"
+          points="74,103 95,128 148,81"
           fill="none"
           stroke="#173404"
-          strokeWidth="7"
+          strokeWidth="9"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
 
-        {/* reg number */}
-        <text x="100" y="152" textAnchor="middle" fontSize="9" fontFamily="Montserrat,sans-serif" fontWeight="600" fill="#0a1517">
+        {/* Three stars — sit above the checkmark, below authority text */}
+        <path d={starPath(98, 65, 3, 1.2)} fill="#173404" opacity="0.6" />
+        <path d={starPath(110, 65, 3, 1.2)} fill="#173404" opacity="0.6" />
+        <path d={starPath(122, 65, 3, 1.2)} fill="#173404" opacity="0.6" />
+
+        {/* Reg number */}
+        <text
+          x={cx} y="152"
+          textAnchor="middle"
+          fontSize="7.5"
+          fontFamily="Montserrat,sans-serif"
+          fontWeight="700"
+          fill="#0a1517"
+          letterSpacing="0.5"
+        >
           {regNo}
         </text>
 
-        {/* ribbon arc — bottom */}
-        <path id="ribbon-arc" d="M 18,100 A 82,82 0 0,0 182,100" fill="none" />
-        <text fontSize="7.5" fontFamily="Montserrat,sans-serif" fontWeight="700" fill="#173404" letterSpacing="1.5">
-          <textPath href="#ribbon-arc" startOffset="50%" textAnchor="middle">{ribbon}</textPath>
+        {/* Authority text — top arc */}
+        <text fontSize="6" fontFamily="Montserrat,sans-serif" fontWeight="600" fill="#4a6020" letterSpacing="0.8">
+          <textPath href="#cb-auth" startOffset="50%" textAnchor="middle">{authority}</textPath>
         </text>
 
-        {/* authority arc — top */}
-        <path id="auth-arc" d="M 24,96 A 76,76 0 0,1 176,96" fill="none" />
-        <text fontSize="6.5" fontFamily="Montserrat,sans-serif" fontWeight="600" fill="#5a6566" letterSpacing="0.5">
-          <textPath href="#auth-arc" startOffset="50%" textAnchor="middle">{authority}</textPath>
+        {/* Ribbon text — bottom arc */}
+        <text fontSize="6.5" fontFamily="Montserrat,sans-serif" fontWeight="700" fill="#173404" letterSpacing="1.5">
+          <textPath href="#cb-ribbon" startOffset="50%" textAnchor="middle">{ribbon}</textPath>
         </text>
       </svg>
     </div>
