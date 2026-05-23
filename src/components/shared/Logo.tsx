@@ -1,8 +1,8 @@
 import { useTheme } from '../../theme/ThemeContext'
 
-export function Logo({ onActivate }: { onActivate?: () => void }) {
+export function Logo({ onActivate, onDark }: { onActivate?: () => void; onDark?: boolean }) {
   const { theme } = useTheme()
-  const src = theme === 'dark' ? '/logo-negative.svg' : '/logo-positive.svg'
+  const src = (onDark ?? theme === 'dark') ? '/logo-negative.svg' : '/logo-positive.svg'
 
   return (
     <button

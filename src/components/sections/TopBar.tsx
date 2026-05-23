@@ -54,17 +54,10 @@ export function TopBar() {
       <Container>
         <div className="flex h-16 items-center justify-between gap-4">
 
-          {/* Logo — fades out at top */}
-          <div
-            className={[
-              'transition-opacity duration-200',
-              isTop ? 'pointer-events-none opacity-0' : 'opacity-100',
-            ].join(' ')}
-          >
-            <Logo onActivate={() => navigate('/')} />
-          </div>
+          {/* Logo — negative on dark hero, theme-based when nav is styled */}
+          <Logo onActivate={() => navigate('/')} onDark={isTop || undefined} />
 
-          {/* Nav links — fades out at top */}
+          {/* Nav links — hidden at top */}
           <nav
             aria-label="Primary"
             className={[
@@ -85,7 +78,7 @@ export function TopBar() {
           </nav>
 
           {/* Controls — always visible */}
-          <div className="flex items-center gap-2 ml-auto">
+          <div className="flex items-center gap-2">
             <LanguageSwitcher />
             <ThemeToggle />
           </div>
