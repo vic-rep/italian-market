@@ -59,7 +59,7 @@ export function AboutPage() {
   return (
     <>
       {/* 1 · Hero */}
-      <section className="dark-grid-bg bg-footer py-20 lg:py-32" aria-labelledby="about-hero-heading">
+      <section className="dark-grid-bg bg-footer pt-24 pb-20 lg:py-32" aria-labelledby="about-hero-heading">
         <Container className="max-w-3xl text-center">
           <h1
             id="about-hero-heading"

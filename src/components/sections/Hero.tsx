@@ -53,7 +53,7 @@ export function Hero() {
 
   return (
     <section id="top" className="dark-grid-bg bg-footer">
-      <Container className="grid items-center gap-10 py-12 lg:grid-cols-2 lg:gap-14 lg:py-20">
+      <Container className="grid items-center gap-10 pt-24 pb-12 lg:grid-cols-2 lg:gap-14 lg:py-20">
         <div className="max-w-xl">
           {/* Google rating — above the headline */}
           <div className="mb-5 inline-flex items-center gap-2">
