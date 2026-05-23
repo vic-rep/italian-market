@@ -130,18 +130,11 @@ export function AboutPage() {
             {a.team.heading}
           </h2>
           <p className="mt-4 max-w-2xl leading-relaxed text-secondary">{a.team.body}</p>
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div key={i} className="flex flex-col items-center gap-3">
-                <div
-                  className="aspect-square w-full rounded-2xl bg-muted"
-                  role="img"
-                  aria-label={`Team member ${i + 1} portrait — real person, natural light`}
-                />
-                <span className="text-xs text-tertiary">Team member {i + 1}</span>
-              </div>
-            ))}
-          </div>
+          <ImgPlaceholder
+            aspect="aspect-[16/9]"
+            caption="Team photo — candid, natural light."
+            className="mt-10 w-full"
+          />
         </Container>
       </section>
 
