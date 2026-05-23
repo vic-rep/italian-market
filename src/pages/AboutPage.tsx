@@ -104,23 +104,15 @@ export function AboutPage() {
   return (
     <>
       {/* 1 · Hero */}
-      <section className="py-16 lg:py-24" aria-labelledby="about-hero-heading">
-        <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <h1
-                id="about-hero-heading"
-                className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl"
-              >
-                {a.hero.headline}
-              </h1>
-              <p className="mt-6 text-lg leading-relaxed text-secondary">{a.hero.subhead}</p>
-            </div>
-            <ImgPlaceholder
-              aspect="aspect-[4/3]"
-              caption="Founders / team in a real workspace — warm, human, confident, not corporate stock."
-            />
-          </div>
+      <section className="dark-grid-bg bg-footer py-20 lg:py-32" aria-labelledby="about-hero-heading">
+        <Container className="max-w-3xl text-center">
+          <h1
+            id="about-hero-heading"
+            className="text-4xl font-semibold leading-tight text-footer-text sm:text-5xl lg:text-6xl"
+          >
+            {a.hero.headline}
+          </h1>
+          <p className="mt-6 text-lg leading-relaxed text-footer-text/75">{a.hero.subhead}</p>
         </Container>
       </section>
 
@@ -208,21 +200,23 @@ export function AboutPage() {
         </Container>
       </section>
 
-      {/* 7 · Europe / ambition — lavender band */}
-      <section className="bg-accent py-16 text-on-accent" aria-labelledby="about-europe-heading">
+      {/* 7 · Europe / ambition */}
+      <section className="py-16" aria-labelledby="about-europe-heading">
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <h2 id="about-europe-heading" className="text-3xl font-semibold text-on-accent sm:text-4xl">
-                {a.europe.heading}
-              </h2>
-              <p className="mt-5 leading-relaxed text-on-accent/85">{a.europe.body}</p>
+          <div className="rounded-2xl bg-accent p-8 lg:p-12">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <div>
+                <h2 id="about-europe-heading" className="text-3xl font-semibold text-on-accent sm:text-4xl">
+                  {a.europe.heading}
+                </h2>
+                <p className="mt-5 leading-relaxed text-on-accent/85">{a.europe.body}</p>
+              </div>
+              <ImgPlaceholder
+                aspect="aspect-[4/3]"
+                caption="Topographic map of Europe — brand visual language; Bulgaria + Italy active."
+                className="bg-white/10 text-on-accent/60"
+              />
             </div>
-            <ImgPlaceholder
-              aspect="aspect-[4/3]"
-              caption="Topographic map of Europe — brand visual language; Bulgaria + Italy active."
-              className="bg-accent/20 text-on-accent/60"
-            />
           </div>
         </Container>
       </section>
