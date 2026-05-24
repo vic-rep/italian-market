@@ -262,6 +262,7 @@ function PromiseCard({ index, title, desc }: { index: number; title: string; des
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export function AboutPage() {
   const { t, locale } = useI18n()
+  const reduce = useReducedMotion()
   const a = t.about
   const kfnBadge =
     locale === 'en' ? '/KFN-certified-EN.svg'
@@ -331,14 +332,16 @@ export function AboutPage() {
                     backgroundPosition: 'bottom center',
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: '100% auto',
-                    opacity: 0.06,
+                    opacity: 0.2,
                   }}
                 />
-                <img
+                <motion.img
                   src={kfnBadge}
                   alt="KFN certified badge"
                   className="relative w-52 drop-shadow-[0_12px_32px_rgba(0,0,0,0.4)]"
                   draggable={false}
+                  whileHover={!reduce ? { scale: 1.07 } : {}}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 />
               </div>
               {/* Copy panel */}
