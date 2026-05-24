@@ -16,8 +16,8 @@ export function HomePage() {
       <HowItWorks />
       <RegionalPricing />
       <WhatIsRca />
-      <Faq />
       <LicenceBadge />
+      <Faq />
     </>
   )
 }
