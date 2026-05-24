@@ -254,13 +254,7 @@ function StepCard({ index, title, desc }: StepCardProps) {
 
       {/* Text */}
       <div className="flex flex-1 flex-col p-6 pt-5">
-        <span
-          className="font-heading text-[3.5rem] font-bold leading-none text-accent/40 lg:text-[4.5rem]"
-          aria-hidden="true"
-        >
-          {index + 1}
-        </span>
-        <span className="mt-3 font-heading text-lg font-semibold text-primary">{title}</span>
+        <span className="font-heading text-lg font-semibold text-primary">{title}</span>
         <p className="mt-2 text-sm leading-relaxed text-secondary sm:text-[0.9375rem]">{desc}</p>
       </div>
     </li>
