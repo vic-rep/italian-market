@@ -261,8 +261,12 @@ function PromiseCard({ index, title, desc }: { index: number; title: string; des
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export function AboutPage() {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const a = t.about
+  const kfnBadge =
+    locale === 'en' ? '/KFN-certified-EN.svg'
+    : locale === 'bg' ? '/KFN-certified-BG.svg'
+    : '/KFN-certified-IT.svg'
 
   return (
     <>
@@ -316,11 +320,14 @@ export function AboutPage() {
       <section className="py-16 bg-muted" aria-labelledby="about-licence-heading">
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <ImgPlaceholder
-              aspect="aspect-square"
-              caption="FSC certificate / licence visual — real asset to be provided."
-              className="max-w-xs mx-auto lg:mx-0"
-            />
+            <div className="flex items-center justify-center lg:justify-start">
+              <img
+                src={kfnBadge}
+                alt="KFN certified badge"
+                className="w-48 lg:w-56"
+                draggable={false}
+              />
+            </div>
             <div>
               <h2 id="about-licence-heading" className="text-3xl font-semibold sm:text-4xl">
                 {a.licence.heading}
