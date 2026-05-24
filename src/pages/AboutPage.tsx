@@ -303,7 +303,7 @@ export function AboutPage() {
       </section>
 
       {/* 3 · Stats band */}
-      <section className="border-y border-border bg-stats-band py-14" aria-label="Key statistics">
+      <section className="dark-grid-bg border-y border-border bg-stats-band py-14" aria-label="Key statistics">
         <Container>
           <dl className="flex flex-col items-center gap-10 sm:flex-row sm:justify-center sm:gap-20">
             {a.stats.map((s) => (
