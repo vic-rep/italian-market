@@ -12,8 +12,8 @@ export function WhatIsRca() {
     <section id="rca" className="py-14 lg:py-20">
       <Container className="grid gap-10 lg:grid-cols-2 lg:gap-14">
         <div>
-          <h2 className="text-2xl sm:text-3xl">{t.rca.heading}</h2>
-          <p className="mt-5 max-w-xl text-lg text-secondary">{t.rca.body}</p>
+          <h2 className="scroll-reveal text-3xl font-bold sm:text-4xl lg:text-[2.5rem]">{t.rca.heading}</h2>
+          <p className="scroll-reveal mt-5 max-w-xl text-base text-secondary sm:text-lg">{t.rca.body}</p>
 
           <div className="mt-8 rounded-2xl border border-border bg-surface p-6 sm:p-7">
             <ul className="space-y-3">
@@ -39,7 +39,7 @@ export function WhatIsRca() {
         </div>
 
         <div className="dark-grid-bg relative flex flex-col items-center justify-center overflow-hidden rounded-2xl bg-footer p-8 text-center text-footer-text sm:p-10">
-          <h3 className="relative z-10 max-w-sm text-2xl text-balance sm:text-3xl">
+          <h3 className="relative z-10 max-w-sm text-3xl font-bold text-balance sm:text-4xl lg:text-[2.5rem]">
             {t.rca.ctaTitle}
           </h3>
           <div className="relative z-10 mt-7 flex flex-col items-center gap-4">

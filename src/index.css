@@ -95,27 +95,112 @@
   }
 }
 
-/*
-  Perspective grid overlay — applied to all dark-background sections (Hero, Footer).
-  The PNG is 10895×2185 RGBA with white grid lines on transparency; anchoring it
-  bottom-center at 100% width keeps the vanishing point centred regardless of
-  viewport width. Opacity is set on the pseudo-element (background-image itself
-  cannot take an opacity value) so content sits above it at full opacity.
-*/
+/* Dark sections (Hero, Footer) — PerspectiveGrid SVG component handles the overlay */
 .dark-grid-bg {
   position: relative;
 }
 
-.dark-grid-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/perspective-grid.png');
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  opacity: 0.2;
-  pointer-events: none;
+/* ── Direction B: Scroll-driven section reveals ─────────────────────────────
+   Wrapped in @supports so Firefox and older browsers see elements at full
+   opacity with no animation. Reduced-motion override inside ensures the
+   prefers-reduced-motion CSS rule also disables these animations.
+*/
+@supports (animation-timeline: view()) {
+  @keyframes scroll-fade-up {
+    from { opacity: 0; translate: 0 1.5rem; }
+    to   { opacity: 1; translate: 0 0; }
+  }
+  @keyframes scroll-pop {
+    from { opacity: 0; scale: 0.93; }
+    to   { opacity: 1; scale: 1; }
+  }
+
+  .scroll-reveal {
+    animation: scroll-fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 28%;
+  }
+  .scroll-pop {
+    animation: scroll-pop linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 24%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .scroll-pop {
+      animation: none;
+      opacity: 1;
+      scale: 1;
+      translate: 0 0;
+    }
+  }
+}
+
+/* ── Direction A: View Transitions ──────────────────────────────────────────
+   Named transition groups:
+   • result-card  — the check card container (form ↔ result card)
+   • plate-badge  — plate text element (form input ↔ result header span)
+   The @supports guard ensures no side-effects in browsers without VT support.
+*/
+.vt-result {
+  view-transition-name: result-card;
+}
+.vt-plate {
+  view-transition-name: plate-badge;
+}
+
+@supports (view-transition-name: none) {
+  ::view-transition-old(result-card) {
+    animation: vt-card-out 0.22s ease-in both;
+  }
+  ::view-transition-new(result-card) {
+    animation: vt-card-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+  }
+  ::view-transition-old(plate-badge) {
+    animation: vt-plate-out 0.18s ease-in both;
+  }
+  ::view-transition-new(plate-badge) {
+    animation: vt-plate-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+  }
+
+  @keyframes vt-card-out {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(0.97) translateY(-6px); }
+  }
+  @keyframes vt-card-in {
+    from { opacity: 0; transform: scale(0.97) translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes vt-plate-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+  @keyframes vt-plate-in {
+    from { opacity: 0; transform: scale(0.75) translateY(-4px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(result-card),
+    ::view-transition-new(result-card),
+    ::view-transition-old(plate-badge),
+    ::view-transition-new(plate-badge) {
+      animation: none;
+    }
+  }
+}
+
+/* ── Result card row cascade ─────────────────────────────────────────────── */
+.result-row {
+  animation: result-row-in 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes result-row-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .result-row { animation: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

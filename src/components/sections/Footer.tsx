@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useI18n } from '../../i18n/I18nContext'
 import { Container } from '../shared/Container'
 import { PhoneIcon, FacebookIcon, InstagramIcon, LinkedinIcon } from '../shared/icons'
+import { PerspectiveGrid } from '../shared/PerspectiveGrid'
 
 const SOCIALS = [
   { label: 'Facebook', Icon: FacebookIcon },
@@ -19,7 +20,8 @@ export function Footer() {
 
   return (
     <footer id="footer" className="dark-grid-bg bg-footer text-footer-text">
-      <Container className="py-12 lg:py-16">
+      <PerspectiveGrid opacity={0.15} />
+      <Container className="relative z-10 py-12 lg:py-16">
         <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-xs">
             <img src="/logo-negative.svg" alt="Trusti" width={107} height={24} className="block" />

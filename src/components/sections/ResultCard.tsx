@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { RcaResult } from '../../api/checkPlate'
 import { useI18n } from '../../i18n/I18nContext'
 import { fmt } from '../../i18n/messages'
@@ -13,9 +14,12 @@ function formatDate(iso: string, localeTag: string): string {
   }).format(date)
 }
 
-function DetailRow({ label, value }: { label: string; value: string }) {
+function DetailRow({ label, value, index = 0 }: { label: string; value: string; index?: number }) {
   return (
-    <div className="flex items-center justify-between gap-4 border-b border-border py-2 last:border-0">
+    <div
+      className="result-row flex items-center justify-between gap-4 border-b border-border py-2 last:border-0"
+      style={{ animationDelay: `${index * 65}ms` }}
+    >
       <dt className="text-sm text-secondary">{label}</dt>
       <dd className="text-right text-sm font-semibold text-primary">{value}</dd>
     </div>
@@ -36,9 +40,15 @@ export function ResultCard({
   return (
     <div
       aria-live="polite"
-      className="rounded-3xl border border-border bg-surface p-6 shadow-sm sm:p-7"
+      className="vt-result rounded-3xl border border-border bg-surface p-6 shadow-sm sm:p-7"
     >
-      <h2 className="text-lg font-semibold text-primary">{fmt(t.result.header, { plate })}</h2>
+      <h2 className="text-lg font-semibold text-primary">
+        {t.result.header.split('{plate}').reduce<ReactNode[]>((nodes, part, i) => {
+          if (i > 0) nodes.push(<span key="vt" className="vt-plate font-mono tracking-wider">{plate}</span>)
+          if (part) nodes.push(part)
+          return nodes
+        }, [])}
+      </h2>
 
       {result.status === 'insured' ? (
         <>
@@ -50,14 +60,15 @@ export function ResultCard({
           </div>
 
           <dl className="mt-3">
-            <DetailRow label={t.result.rowInsurer} value={result.insurer} />
-            <DetailRow label={t.result.rowActiveSince} value={formatDate(result.activeSince, localeTag)} />
+            <DetailRow index={0} label={t.result.rowInsurer} value={result.insurer} />
+            <DetailRow index={1} label={t.result.rowActiveSince} value={formatDate(result.activeSince, localeTag)} />
             <DetailRow
+              index={2}
               label={t.result.rowVehicle}
               value={`${result.vehicle} · ${result.powerCv} CV`}
             />
-            <DetailRow label={t.result.rowBonusMalus} value={result.bonusMalusClass} />
-            <DetailRow label={t.result.rowFines} value={String(result.finesOnRecord)} />
+            <DetailRow index={3} label={t.result.rowBonusMalus} value={result.bonusMalusClass} />
+            <DetailRow index={4} label={t.result.rowFines} value={String(result.finesOnRecord)} />
           </dl>
 
           <div className="mt-3 flex items-center gap-3 rounded-2xl border border-accent/25 bg-accent/10 p-3">

@@ -37,8 +37,8 @@ export function RegionalPricing() {
   return (
     <section className="py-14 lg:py-20">
       <Container>
-        <h2 className="text-2xl sm:text-3xl">{t.price.chartHeading}</h2>
-        <p className="mt-3 max-w-2xl text-lg text-secondary">{t.price.chartSubhead}</p>
+        <h2 className="scroll-reveal text-3xl font-bold sm:text-4xl lg:text-[2.75rem]">{t.price.chartHeading}</h2>
+        <p className="scroll-reveal mt-3 max-w-2xl text-base text-secondary sm:text-lg">{t.price.chartSubhead}</p>
 
         {/*
           Bento grid: the Italy heatmap is the hero box (tall, left), price-stat
@@ -71,7 +71,7 @@ export function RegionalPricing() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className={`flex flex-col justify-center rounded-2xl border border-border bg-surface p-5 lg:p-6 ${stat.span}`}
+              className={`scroll-pop flex flex-col justify-center rounded-2xl border border-border bg-surface p-5 lg:p-6 ${stat.span}`}
             >
               <div className="flex items-center gap-2">
                 {stat.swatch && (
@@ -83,7 +83,7 @@ export function RegionalPricing() {
                 )}
                 <span className="text-sm font-medium text-secondary">{stat.label}</span>
               </div>
-              <p className="mt-2 text-3xl font-semibold text-primary tabular-nums sm:text-4xl">
+              <p className="mt-2 font-heading text-4xl font-bold text-primary tabular-nums sm:text-5xl">
                 {stat.value}
               </p>
               <p className="mt-1 text-sm text-secondary">{stat.sub}</p>

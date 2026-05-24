@@ -228,11 +228,16 @@ interface StepCardProps { index: number; title: string; desc: string }
 
 function StepCard({ index, title, desc }: StepCardProps) {
   const [hovered, setHovered] = useState(false)
+  const reduce = useReducedMotion()
   const Illustration = ILLUSTRATIONS[index]
 
   return (
-    <li
+    <motion.li
       className="flex flex-col overflow-hidden rounded-2xl border border-border bg-surface"
+      initial={reduce ? false : { opacity: 0, y: 28 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: index * 0.11 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -253,16 +258,17 @@ function StepCard({ index, title, desc }: StepCardProps) {
       </div>
 
       {/* Text */}
-      <div className="flex flex-1 flex-col gap-2 p-6">
-        <div className="flex items-center gap-3">
-          <span className="font-heading text-2xl font-semibold text-accent" aria-hidden="true">
-            {index + 1}
-          </span>
-          <span className="font-heading text-lg font-semibold text-primary">{title}</span>
-        </div>
-        <p className="text-sm leading-relaxed text-secondary sm:text-[0.9375rem]">{desc}</p>
+      <div className="flex flex-1 flex-col p-6 pt-5">
+        <span
+          className="font-heading text-[3.5rem] font-bold leading-none text-accent/40 lg:text-[4.5rem]"
+          aria-hidden="true"
+        >
+          {index + 1}
+        </span>
+        <span className="mt-3 font-heading text-lg font-semibold text-primary">{title}</span>
+        <p className="mt-2 text-sm leading-relaxed text-secondary sm:text-[0.9375rem]">{desc}</p>
       </div>
-    </li>
+    </motion.li>
   )
 }
 
@@ -276,7 +282,7 @@ export function HowItWorks() {
   return (
     <section id="how" className="py-16 lg:py-24">
       <Container>
-        <h2 className="mb-10 text-center text-2xl sm:text-3xl lg:mb-12 lg:text-[2rem]">
+        <h2 className="scroll-reveal mb-10 text-3xl font-bold sm:text-4xl lg:mb-14 lg:text-[2.75rem]">
           {t.how.heading}
         </h2>
         <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-label={t.how.heading}>
