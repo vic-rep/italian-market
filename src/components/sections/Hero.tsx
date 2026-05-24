@@ -8,7 +8,6 @@ import { Container } from '../shared/Container'
 import { Tooltip } from '../shared/Tooltip'
 import { ShieldCheckIcon, UsersIcon } from '../shared/icons'
 import { FOCUS_FORM_EVENT } from '../shared/formFocus'
-import { PerspectiveGrid } from '../shared/PerspectiveGrid'
 import { ResultCard } from './ResultCard'
 
 function startViewTransition(cb: () => void) {
@@ -71,8 +70,7 @@ export function Hero() {
 
   return (
     <section id="top" className="dark-grid-bg bg-footer">
-      <PerspectiveGrid enableParallax opacity={0.2} />
-      <Container className="relative z-10 grid items-center gap-10 pt-24 pb-12 lg:grid-cols-2 lg:gap-14 lg:py-20">
+      <Container className="grid items-center gap-10 pt-24 pb-12 lg:grid-cols-2 lg:gap-14 lg:py-20">
         <motion.div
           className="max-w-xl"
           initial={reduce ? {} : { opacity: 0, y: 24 }}

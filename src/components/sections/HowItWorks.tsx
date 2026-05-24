@@ -228,16 +228,11 @@ interface StepCardProps { index: number; title: string; desc: string }
 
 function StepCard({ index, title, desc }: StepCardProps) {
   const [hovered, setHovered] = useState(false)
-  const reduce = useReducedMotion()
   const Illustration = ILLUSTRATIONS[index]
 
   return (
-    <motion.li
+    <li
       className="flex flex-col overflow-hidden rounded-2xl border border-border bg-surface"
-      initial={reduce ? false : { opacity: 0, y: 28 }}
-      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: index * 0.11 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -268,7 +263,7 @@ function StepCard({ index, title, desc }: StepCardProps) {
         <span className="mt-3 font-heading text-lg font-semibold text-primary">{title}</span>
         <p className="mt-2 text-sm leading-relaxed text-secondary sm:text-[0.9375rem]">{desc}</p>
       </div>
-    </motion.li>
+    </li>
   )
 }
 
@@ -282,7 +277,7 @@ export function HowItWorks() {
   return (
     <section id="how" className="py-16 lg:py-24">
       <Container>
-        <h2 className="scroll-reveal mb-10 text-3xl font-bold sm:text-4xl lg:mb-14 lg:text-[2.75rem]">
+        <h2 className="mb-10 text-3xl font-bold sm:text-4xl lg:mb-14 lg:text-[2.75rem]">
           {t.how.heading}
         </h2>
         <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-label={t.how.heading}>

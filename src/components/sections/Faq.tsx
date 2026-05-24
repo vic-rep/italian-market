@@ -17,10 +17,10 @@ export function Faq() {
   return (
     <section className="py-14 lg:py-20">
       <Container className="max-w-3xl">
-        <h2 className="scroll-reveal text-3xl font-bold sm:text-4xl">{t.faq.heading}</h2>
+        <h2 className="text-3xl font-bold sm:text-4xl">{t.faq.heading}</h2>
         <div className="mt-6">
           {items.map((item) => (
-            <details key={item.q} className="scroll-reveal group border-b border-border">
+            <details key={item.q} className="group border-b border-border">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-semibold text-primary [&::-webkit-details-marker]:hidden">
                 {item.q}
                 <ChevronDownIcon className="h-5 w-5 shrink-0 text-secondary transition-transform duration-200 group-open:rotate-180" />
