@@ -319,20 +319,35 @@ export function AboutPage() {
       {/* 4 · Licence + regulation (combined) */}
       <section className="py-16 bg-muted" aria-labelledby="about-licence-heading">
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <div className="flex items-center justify-center lg:justify-start">
-              <img
-                src={kfnBadge}
-                alt="KFN certified badge"
-                className="w-48 lg:w-56"
-                draggable={false}
-              />
-            </div>
-            <div>
-              <h2 id="about-licence-heading" className="text-3xl font-semibold sm:text-4xl">
-                {a.licence.heading}
-              </h2>
-              <p className="mt-5 leading-relaxed text-secondary">{a.licence.body}</p>
+          <div className="overflow-hidden rounded-3xl border border-border">
+            <div className="grid lg:grid-cols-[340px_1fr]">
+              {/* Seal panel — dark, credential-focused */}
+              <div className="relative flex flex-col items-center justify-center overflow-hidden bg-footer px-10 py-14">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    backgroundImage: "url('/perspective-grid.png')",
+                    backgroundPosition: 'bottom center',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: '100% auto',
+                    opacity: 0.06,
+                  }}
+                />
+                <img
+                  src={kfnBadge}
+                  alt="KFN certified badge"
+                  className="relative w-52 drop-shadow-[0_12px_32px_rgba(0,0,0,0.4)]"
+                  draggable={false}
+                />
+              </div>
+              {/* Copy panel */}
+              <div className="flex flex-col justify-center bg-surface px-10 py-14 lg:px-14">
+                <h2 id="about-licence-heading" className="text-3xl font-semibold sm:text-4xl">
+                  {a.licence.heading}
+                </h2>
+                <p className="mt-5 max-w-xl leading-relaxed text-secondary">{a.licence.body}</p>
+              </div>
             </div>
           </div>
         </Container>
