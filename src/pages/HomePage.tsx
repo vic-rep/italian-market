@@ -5,7 +5,7 @@ import { HowItWorks } from '../components/sections/HowItWorks'
 import { RegionalPricing } from '../components/sections/RegionalPricing'
 import { WhatIsRca } from '../components/sections/WhatIsRca'
 import { Faq } from '../components/sections/Faq'
-import { RepeatCta } from '../components/sections/RepeatCta'
+import { LicenceBadge } from '../components/sections/LicenceBadge'
 
 export function HomePage() {
   return (
@@ -17,7 +17,7 @@ export function HomePage() {
       <RegionalPricing />
       <WhatIsRca />
       <Faq />
-      <RepeatCta />
+      <LicenceBadge />
     </>
   )
 }
