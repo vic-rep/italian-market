@@ -1,5 +1,3 @@
-'use client'
-
 import { useI18n } from '../../i18n/I18nContext'
 import { LOCALES, LOCALE_LABELS, type Locale } from '../../i18n/messages'
 import { ChevronDownIcon } from './icons'

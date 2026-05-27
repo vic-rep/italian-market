@@ -1,5 +1,3 @@
-'use client'
-
 import type { ReactNode } from 'react'
 import type { RcaResult } from '../../api/checkPlate'
 import { useI18n } from '../../i18n/I18nContext'

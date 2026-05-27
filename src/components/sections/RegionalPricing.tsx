@@ -1,5 +1,3 @@
-'use client'
-
 import { useI18n } from '../../i18n/I18nContext'
 import { Container } from '../shared/Container'
 import { ItalyHeatmap } from './ItalyHeatmap'

@@ -1,8 +1,5 @@
-'use client'
-
 import { useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { Link, useNavigate } from 'react-router-dom'
 import { useI18n } from '../../i18n/I18nContext'
 import { Container } from '../shared/Container'
 import { LanguageSwitcher } from '../shared/LanguageSwitcher'
@@ -13,7 +10,7 @@ type NavState = 'top' | 'visible' | 'hidden'
 
 export function TopBar() {
   const { t } = useI18n()
-  const router = useRouter()
+  const navigate = useNavigate()
 
   const [navState, setNavState] = useState<NavState>(
     typeof window !== 'undefined' && window.scrollY >= 20 ? 'visible' : 'top'
@@ -58,7 +55,7 @@ export function TopBar() {
         <div className="flex h-16 items-center justify-between gap-4">
 
           {/* Logo — negative on dark hero, theme-based when nav is styled */}
-          <Logo onActivate={() => router.push('/')} onDark={isTop || undefined} />
+          <Logo onActivate={() => navigate('/')} onDark={isTop || undefined} />
 
           {/* Nav links — hidden at top */}
           <nav
@@ -75,7 +72,7 @@ export function TopBar() {
             <a href="/#rca" className="text-sm font-medium text-secondary transition-colors hover:text-primary">
               {t.nav.whatIsRca}
             </a>
-            <Link href="/about" className="text-sm font-medium text-secondary transition-colors hover:text-primary">
+            <Link to="/about" className="text-sm font-medium text-secondary transition-colors hover:text-primary">
               {t.nav.about}
             </Link>
           </nav>

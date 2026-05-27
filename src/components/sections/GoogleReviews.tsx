@@ -1,5 +1,3 @@
-'use client'
-
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useReducedMotion, type Variants } from 'motion/react'
 import { useI18n } from '../../i18n/I18nContext'
