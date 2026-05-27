@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
 import {
@@ -23,10 +25,10 @@ type I18nValue = {
 
 const I18nContext = createContext<I18nValue | null>(null)
 
-function readStoredLocale(): Locale {
+function resolveStoredLocale(): Locale {
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
-    if (stored && (LOCALES as string[]).includes(stored)) return stored as Locale
+    if (stored && (LOCALES as readonly string[]).includes(stored)) return stored as Locale
   } catch {
     // localStorage unavailable — fall through to default.
   }
@@ -34,7 +36,14 @@ function readStoredLocale(): Locale {
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(readStoredLocale)
+  // Start with the default locale so SSR and the initial client render agree.
+  // After hydration, sync from localStorage. The pre-paint script in <head>
+  // has already set <html lang> so there's no flash for the browser.
+  const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE)
+
+  useEffect(() => {
+    setLocaleState(resolveStoredLocale())
+  }, [])
 
   useEffect(() => {
     document.documentElement.lang = locale

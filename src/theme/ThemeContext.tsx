@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
 
@@ -13,19 +15,26 @@ type ThemeValue = {
 
 const ThemeContext = createContext<ThemeValue | null>(null)
 
-function readInitialTheme(): Theme {
+function resolveTheme(): Theme {
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
     if (stored === 'light' || stored === 'dark') return stored
     if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) return 'dark'
   } catch {
-    // Fall through to the light default (per research guardrail).
+    // Fall through to the light default.
   }
   return 'light'
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(readInitialTheme)
+  // Start with the stable default so SSR and the initial client render agree.
+  // After hydration, sync from localStorage / system preference. The pre-paint
+  // script in <head> has already set data-theme on <html> so there's no FOUC.
+  const [theme, setThemeState] = useState<Theme>('light')
+
+  useEffect(() => {
+    setThemeState(resolveTheme())
+  }, [])
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)

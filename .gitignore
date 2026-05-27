@@ -1,8 +1,12 @@
 node_modules
+.next
+out
 dist
 dist-ssr
 *.local
 .DS_Store
+next-env.d.ts.tsbuildinfo
+*.tsbuildinfo
 
 # AI tooling — local only, not app code
 .agents/

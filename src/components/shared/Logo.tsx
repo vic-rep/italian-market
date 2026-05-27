@@ -1,3 +1,5 @@
+'use client'
+
 import { useTheme } from '../../theme/ThemeContext'
 
 export function Logo({ onActivate, onDark }: { onActivate?: () => void; onDark?: boolean }) {

@@ -1,5 +1,7 @@
+'use client'
+
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { motion, useReducedMotion } from 'motion/react'
 import { useI18n } from '../i18n/I18nContext'
 import { Container } from '../components/shared/Container'
@@ -408,7 +410,7 @@ export function AboutPage() {
           </h2>
           <div className="mt-8">
             <Link
-              to="/"
+              href="/"
               className="inline-flex items-center gap-2 rounded-xl bg-action px-8 py-4 text-base font-semibold text-on-action transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-action"
             >
               {a.cta.button} →

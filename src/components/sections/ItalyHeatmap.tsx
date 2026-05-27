@@ -1,3 +1,5 @@
+'use client'
+
 import { useMemo, useRef, useState } from 'react'
 import type { MouseEvent as ReactMouseEvent } from 'react'
 import { geoMercator, geoPath } from 'd3-geo'

@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { useI18n } from '../../i18n/I18nContext'
 import { Container } from '../shared/Container'
 import { PhoneIcon, FacebookIcon, InstagramIcon, LinkedinIcon } from '../shared/icons'
@@ -36,7 +38,7 @@ export function Footer() {
                 {group.links.map((link) => (
                   <Link
                     key={link.href}
-                    to={link.href}
+                    href={link.href}
                     className="text-sm text-footer-text/70 transition-colors hover:text-footer-text"
                   >
                     {link.label}
