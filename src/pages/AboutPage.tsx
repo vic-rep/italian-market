@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { useI18n } from '../i18n/I18nContext'
 import { Container } from '../components/shared/Container'
 import { ChevronDownIcon } from '../components/shared/icons'
+import { AboutOnlineBand } from '../components/sections/AboutOnlineBand'
 
 // ─── Placeholder image ────────────────────────────────────────────────────────
 function ImgPlaceholder({
@@ -284,7 +285,10 @@ export function AboutPage() {
         </Container>
       </section>
 
-      {/* 2 · Origin */}
+      {/* 2 · Online band */}
+      <AboutOnlineBand />
+
+      {/* 3 · Origin */}
       <section className="py-16 bg-muted" aria-labelledby="about-origin-heading">
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
