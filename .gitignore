@@ -4,6 +4,13 @@ dist-ssr
 *.local
 .DS_Store
 
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
+tsconfig.*.tsbuildinfo
+
+# Stale Next.js artifacts from the aborted migration (see nextjs-migration branch)
+.next
+
 # AI tooling — local only, not app code
 .agents/
 .claude/

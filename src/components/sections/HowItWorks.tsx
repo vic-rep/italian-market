@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { useI18n } from '../../i18n/I18nContext'
 import { Container } from '../shared/Container'
+import { asset } from '../../utils/asset'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Icons
@@ -242,7 +243,7 @@ function StepCard({ index, title, desc }: StepCardProps) {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
           style={{
-            backgroundImage: "url('/perspective-grid.png')",
+            backgroundImage: `url('${asset('/perspective-grid.png')}')`,
             backgroundPosition: 'bottom center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: '100% auto',

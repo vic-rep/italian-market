@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { useI18n } from '../i18n/I18nContext'
 import { Container } from '../components/shared/Container'
 import { ChevronDownIcon } from '../components/shared/icons'
+import { asset } from '../utils/asset'
 
 // ─── Placeholder image ────────────────────────────────────────────────────────
 function ImgPlaceholder({
@@ -242,7 +243,7 @@ function PromiseCard({ index, title, desc }: { index: number; title: string; des
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
           style={{
-            backgroundImage: "url('/perspective-grid.png')",
+            backgroundImage: `url('${asset('/perspective-grid.png')}')`,
             backgroundPosition: 'bottom center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: '100% auto',
@@ -264,10 +265,11 @@ export function AboutPage() {
   const { t, locale } = useI18n()
   const reduce = useReducedMotion()
   const a = t.about
-  const kfnBadge =
+  const kfnBadge = asset(
     locale === 'en' ? '/KFN-certified-EN.svg'
     : locale === 'bg' ? '/KFN-certified-BG.svg'
     : '/KFN-certified-IT.svg'
+  )
 
   return (
     <>
@@ -328,7 +330,7 @@ export function AboutPage() {
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0"
                   style={{
-                    backgroundImage: "url('/perspective-grid.png')",
+                    backgroundImage: `url('${asset('/perspective-grid.png')}')`,
                     backgroundPosition: 'bottom center',
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: '100% auto',

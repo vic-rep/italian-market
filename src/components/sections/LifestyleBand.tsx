@@ -1,6 +1,7 @@
 import { useI18n } from '../../i18n/I18nContext'
 import { Container } from '../shared/Container'
 import { PhoneIcon, ClipboardIcon, ClockIcon, ZapIcon, ShieldCheckIcon } from '../shared/icons'
+import { asset } from '../../utils/asset'
 
 const BULLET_ICONS = [PhoneIcon, ClipboardIcon, ClockIcon, ZapIcon, ShieldCheckIcon]
 
@@ -12,7 +13,7 @@ export function LifestyleBand() {
       <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <div className="overflow-hidden rounded-2xl aspect-[4/3] w-full">
           <img
-            src="/the-italian.png"
+            src={asset('/the-italian.png')}
             alt={t.lifestyle.imageAlt}
             className="h-full w-full object-cover object-center"
           />
