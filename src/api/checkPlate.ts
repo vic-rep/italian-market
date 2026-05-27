@@ -1,32 +1,55 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// RcaResult — modelled on the actual scraper payload, not a richer mock.
+//
+// Real fields per the source (Italian motor insurance lookup):
+//   • plate           — echoed back (we already know it)
+//   • vehicleCategory — "AUTOVEICOLO" | "MOTOCICLO" | "CICLOMOTORE" | "AUTOCARRO"
+//                       | "ALTRO" — Italian vehicle category, not model
+//   • insurer         — present only when insured
+//   • validUntil      — ISO date string; scraper gives DD/MM/YYYY, the adapter
+//                       converts before constructing an RcaResult
+//   • statusMessage   — raw Italian sentence from the source, kept verbatim
+//                       (currently not rendered in the UI but preserved for
+//                       logging / future use)
+// ─────────────────────────────────────────────────────────────────────────────
+
+export type VehicleCategory =
+  | 'AUTOVEICOLO'
+  | 'MOTOCICLO'
+  | 'CICLOMOTORE'
+  | 'AUTOCARRO'
+  | 'ALTRO'
+
 export type RcaResult =
   | {
       status: 'insured'
-      validUntil: string
+      vehicleCategory: VehicleCategory
       insurer: string
-      activeSince: string
-      vehicle: string
-      powerCv: number
-      bonusMalusClass: string
-      finesOnRecord: number
+      validUntil: string
+      statusMessage: string
     }
-  | { status: 'not_insured' }
+  | {
+      status: 'not_insured'
+      vehicleCategory: VehicleCategory
+      statusMessage: string
+    }
 
 const MOCK_DELAY_MS = 800
 
-// Sample policy returned for the "insured" variant. Dates are ISO strings;
-// the result UI formats them per the active locale.
 const INSURED_SAMPLE: RcaResult = {
   status: 'insured',
-  validUntil: '2026-11-14',
-  insurer: 'Allianz',
-  activeSince: '2019-03-01',
-  vehicle: 'Fiat 500 1.2 Lounge',
-  powerCv: 69,
-  bonusMalusClass: '1',
-  finesOnRecord: 0,
+  vehicleCategory: 'AUTOVEICOLO',
+  insurer: 'VERTI ASSICURAZIONI S.P.A.',
+  validUntil: '2026-10-11',
+  statusMessage: 'Il veicolo risulta assicurato',
 }
 
-const NOT_INSURED_SAMPLE: RcaResult = { status: 'not_insured' }
+const NOT_INSURED_SAMPLE: RcaResult = {
+  status: 'not_insured',
+  vehicleCategory: 'AUTOVEICOLO',
+  statusMessage:
+    'Il veicolo non risulta in regola con gli obblighi assicurativi RCA',
+}
 
 // Demo selector — replace this whole module with a real API call later.
 // Two easy ways to demo the "not insured" variant:

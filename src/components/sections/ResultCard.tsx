@@ -3,6 +3,7 @@ import type { RcaResult } from '../../api/checkPlate'
 import { useI18n } from '../../i18n/I18nContext'
 import { fmt } from '../../i18n/messages'
 import { CheckIcon, XIcon } from '../shared/icons'
+import { getVehicleIcon, getVehicleLabel } from '../../utils/vehicleIcon'
 
 function formatDate(iso: string, localeTag: string): string {
   const date = new Date(iso)
@@ -35,20 +36,37 @@ export function ResultCard({
   plate: string
   onReset: () => void
 }) {
-  const { t, localeTag } = useI18n()
+  const { t, locale, localeTag } = useI18n()
+
+  // Vehicle silhouette + accessible label, derived from the scraper's category.
+  const VehicleIcon = getVehicleIcon(result.vehicleCategory)
+  const vehicleLabel = getVehicleLabel(result.vehicleCategory, locale)
+
+  // Header: "Your RC Auto · [icon] [plate]" — the icon sits next to the plate
+  // and replaces the old separate "Vehicle" detail row.
+  const header = t.result.header.split('{plate}').reduce<ReactNode[]>((nodes, part, i) => {
+    if (i > 0) {
+      nodes.push(
+        <span key="plate-group" className="inline-flex items-center gap-1.5 align-middle">
+          <VehicleIcon
+            className="h-5 w-5 text-secondary"
+            role="img"
+            aria-label={vehicleLabel}
+          />
+          <span className="vt-plate font-mono tracking-wider">{plate}</span>
+        </span>,
+      )
+    }
+    if (part) nodes.push(part)
+    return nodes
+  }, [])
 
   return (
     <div
       aria-live="polite"
       className="vt-result rounded-3xl border border-border bg-surface p-6 shadow-sm sm:p-7"
     >
-      <h2 className="text-lg font-semibold text-primary">
-        {t.result.header.split('{plate}').reduce<ReactNode[]>((nodes, part, i) => {
-          if (i > 0) nodes.push(<span key="vt" className="vt-plate font-mono tracking-wider">{plate}</span>)
-          if (part) nodes.push(part)
-          return nodes
-        }, [])}
-      </h2>
+      <h2 className="text-lg font-semibold text-primary">{header}</h2>
 
       {result.status === 'insured' ? (
         <>
@@ -61,14 +79,6 @@ export function ResultCard({
 
           <dl className="mt-3">
             <DetailRow index={0} label={t.result.rowInsurer} value={result.insurer} />
-            <DetailRow index={1} label={t.result.rowActiveSince} value={formatDate(result.activeSince, localeTag)} />
-            <DetailRow
-              index={2}
-              label={t.result.rowVehicle}
-              value={`${result.vehicle} · ${result.powerCv} CV`}
-            />
-            <DetailRow index={3} label={t.result.rowBonusMalus} value={result.bonusMalusClass} />
-            <DetailRow index={4} label={t.result.rowFines} value={String(result.finesOnRecord)} />
           </dl>
 
           <div className="mt-3 flex items-center gap-3 rounded-2xl border border-accent/25 bg-accent/10 p-3">

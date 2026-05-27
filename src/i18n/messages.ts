@@ -12,7 +12,7 @@ export const messages = {
     hero: {
       headline: 'Your car insurance, checked in 10 seconds.',
       subhead:
-        'Enter your plate. See your status, renewal date, and bonus-malus class — free, no account.',
+        'Enter your plate. See your status, renewal date, and insurer — free, no account.',
       plate: 'Number plate',
       plateTooltip: 'We use your plate to pull your policy details. Nothing else.',
       phone: 'Mobile number',
@@ -35,7 +35,7 @@ export const messages = {
       heading: 'How it works',
       steps: [
         { title: 'Enter your plate',            desc: 'Your plate and mobile number — that\'s all. About ten seconds, no account.' },
-        { title: 'See your results instantly',  desc: 'Status, renewal date, insurer, bonus-malus class, even any open fines — on screen right away. No waiting, no callback.' },
+        { title: 'See your results instantly',  desc: 'Status, renewal date, and insurer — on screen right away. No waiting, no callback.' },
         { title: 'Never miss your renewal',     desc: 'Get a reminder before your policy expires, so you\'re never caught uninsured — and find the best price when it\'s time.' },
       ],
       illExpiry:    'Expires',
@@ -112,10 +112,6 @@ export const messages = {
       notInsuredSub: 'This vehicle has no active policy.',
       getCovered: 'Get covered now',
       rowInsurer: 'Insurer',
-      rowActiveSince: 'Active since',
-      rowVehicle: 'Vehicle',
-      rowBonusMalus: 'Bonus-malus class',
-      rowFines: 'Fines on record',
       reminder: 'Reminder set',
       reminderSub: "We'll call you before it expires.",
       secondaryCta: 'Want a better price at renewal?',
@@ -180,7 +176,7 @@ export const messages = {
     hero: {
       headline: 'La tua RC Auto, verificata in 10 secondi.',
       subhead:
-        'Inserisci la targa. Scopri stato, scadenza e classe di merito — gratis, senza registrazione.',
+        'Inserisci la targa. Scopri stato, scadenza e compagnia — gratis, senza registrazione.',
       plate: 'Targa',
       plateTooltip: 'Usiamo la targa solo per recuperare i dati della tua polizza. Nient’altro.',
       phone: 'Numero di cellulare',
@@ -203,7 +199,7 @@ export const messages = {
       heading: 'Come funziona',
       steps: [
         { title: 'Inserisci la targa',          desc: 'La tua targa e il numero di cellulare — tutto qui. Circa dieci secondi, senza registrazione.' },
-        { title: 'Vedi subito i risultati',      desc: 'Stato, scadenza, compagnia, classe di merito e anche eventuali multe — subito a schermo. Nessuna attesa, nessuna richiamata.' },
+        { title: 'Vedi subito i risultati',      desc: 'Stato, scadenza e compagnia — subito a schermo. Nessuna attesa, nessuna richiamata.' },
         { title: 'Non perdere la scadenza',      desc: 'Ricevi un promemoria prima che la polizza scada, così non resti mai scoperto — e trovi il prezzo migliore al momento giusto.' },
       ],
       illExpiry:    'Scadenza',
@@ -281,10 +277,6 @@ export const messages = {
       notInsuredSub: 'Questo veicolo non ha una polizza attiva.',
       getCovered: 'Assicurati ora',
       rowInsurer: 'Compagnia',
-      rowActiveSince: 'Attiva dal',
-      rowVehicle: 'Veicolo',
-      rowBonusMalus: 'Classe di merito',
-      rowFines: 'Multe registrate',
       reminder: 'Promemoria attivato',
       reminderSub: 'Ti chiamiamo prima della scadenza.',
       secondaryCta: 'Vuoi un prezzo migliore al rinnovo?',
@@ -353,7 +345,7 @@ export const messages = {
     hero: {
       headline: 'Твоята автозастраховка, проверена за 10 секунди.',
       subhead:
-        'Въведи регистрационния номер. Виж статус, дата на изтичане и бонус-малус клас — безплатно, без регистрация.',
+        'Въведи регистрационния номер. Виж статус, дата на изтичане и застраховател — безплатно, без регистрация.',
       plate: 'Регистрационен номер',
       plateTooltip: 'Използваме номера само за да извлечем данните на полицата ти. Нищо друго.',
       phone: 'Мобилен номер',
@@ -376,7 +368,7 @@ export const messages = {
       heading: 'Как работи',
       steps: [
         { title: 'Въведи регистрационния номер', desc: 'Само номерът и мобилният ти телефон. Около десет секунди, без регистрация.' },
-        { title: 'Виж резултатите веднага',       desc: 'Статус, дата на изтичане, застраховател, бонус-малус клас и дори регистрирани глоби — веднага на екрана. Без чакане, без обратно обаждане.' },
+        { title: 'Виж резултатите веднага',       desc: 'Статус, дата на изтичане и застраховател — веднага на екрана. Без чакане, без обратно обаждане.' },
         { title: 'Не пропускай подновяването',    desc: 'Получаваш напомняне преди полицата да изтече, за да не оставаш без покритие — и да хванеш най-добрата цена в точния момент.' },
       ],
       illExpiry:    'Изтича',
@@ -458,10 +450,6 @@ export const messages = {
       notInsuredSub: 'Този автомобил няма активна полица.',
       getCovered: 'Застраховай се сега',
       rowInsurer: 'Застраховател',
-      rowActiveSince: 'Активна от',
-      rowVehicle: 'Автомобил',
-      rowBonusMalus: 'Бонус-малус клас',
-      rowFines: 'Регистрирани глоби',
       reminder: 'Напомнянето е активирано',
       reminderSub: 'Ще ти се обадим преди да изтече.',
       secondaryCta: 'Искаш по-добра цена при подновяване?',

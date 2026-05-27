@@ -105,6 +105,24 @@ export const CarIcon = (props: IconProps) => (
   </Base>
 )
 
+export const MotorcycleIcon = (props: IconProps) => (
+  <Base {...props}>
+    <circle cx="5" cy="16" r="3" />
+    <circle cx="19" cy="16" r="3" />
+    <path d="M5 16h7l5-6h-3" />
+    <path d="M14 7h4l1 4" />
+  </Base>
+)
+
+export const TruckIcon = (props: IconProps) => (
+  <Base {...props}>
+    <path d="M3 7h10v9H3z" />
+    <path d="M13 10h4l3 3v3h-7z" />
+    <circle cx="7" cy="17" r="1.5" />
+    <circle cx="17" cy="17" r="1.5" />
+  </Base>
+)
+
 export const MapPinIcon = (props: IconProps) => (
   <Base {...props}>
     <path d="M12 21s-6-5.2-6-10a6 6 0 0 1 12 0c0 4.8-6 10-6 10Z" />
