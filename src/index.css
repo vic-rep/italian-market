@@ -24,6 +24,37 @@
   --color-footer: var(--c-footer-bg);
   --color-footer-text: var(--c-footer-text);
   --color-stats-band: var(--c-stats-band);
+
+  /*
+    Fluid type scale — linear interpolation between two viewport anchors.
+
+      anchor min:  375px  (small phone)
+      anchor max: 1280px  (desktop comfort)
+
+    Below the min, clamp's lower bound takes over; above the max, the upper
+    bound caps growth. Desktop ceilings deliberately match Tailwind v4's
+    defaults so nothing visually changes at desktop sizes — only small
+    viewports get a quieter, more proportionate read.
+
+    Body sizes (xs/sm/base) stay fixed: stable reading rhythm + 16px minimum
+    body rule. Lead-paragraph sizes (lg/xl) move by 1–2px only. Display
+    sizes (3xl through 7xl) carry the real fluid range.
+
+    Each clamp expression is `clamp(floor, M*rem + N*vw, ceiling)` where M
+    and N come from solving the two anchor equations. Tweak floor & ceiling
+    to change the swing; M and N follow.
+  */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   clamp(1.0625rem, 1.037rem + 0.110vw, 1.125rem);
+  --text-xl:   clamp(1.125rem,  1.073rem + 0.221vw, 1.25rem);
+  --text-2xl:  clamp(1.25rem,   1.146rem + 0.442vw, 1.5rem);
+  --text-3xl:  clamp(1.5rem,    1.345rem + 0.663vw, 1.875rem);
+  --text-4xl:  clamp(1.75rem,   1.543rem + 0.884vw, 2.25rem);
+  --text-5xl:  clamp(2.25rem,   1.939rem + 1.326vw, 3rem);
+  --text-6xl:  clamp(2.75rem,   2.336rem + 1.768vw, 3.75rem);
+  --text-7xl:  clamp(3.25rem,   2.732rem + 2.210vw, 4.5rem);
 }
 
 :root {
