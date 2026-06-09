@@ -13,20 +13,20 @@ interface Review { id: string; name: string; text: string }
 
 const REVIEWS: Record<Locale, Review[]> = {
   it: [
-    { id: '1', name: 'Marco Ferretti',    text: 'Non avevo mai rinnovato online prima. Avevo paura di sbagliare qualcosa. Invece ci hanno guidato passo passo e il documento è arrivato in pochi minuti. Non ci voleva nemmeno un ufficio.' },
+    { id: '1', name: 'Marco Ferretti',    text: 'Non riuscivo a trovare i dati della mia polizza senza passare dall\'agenzia. In dieci secondi avevo tutto davanti: scadenza, compagnia, classe di merito. Non mi aspettavo fosse così immediato.' },
     { id: '2', name: 'Giulia Marchetti',  text: 'Ho avuto un dubbio sulla clausola di guida esclusiva. Ho chiamato, ha risposto subito una persona — non un bot, non una coda. Mi ha spiegato tutto in tre minuti. Ormai è raro trovare questo.' },
-    { id: '3', name: 'Roberto Esposito',  text: 'Mi aspettavo di spendere quanto con il mio agente di sempre. Invece ho risparmiato 140€. Stessa copertura, compagnia diversa. Il risparmio c\'è, basta saperlo trovare.' },
+    { id: '3', name: 'Roberto Esposito',  text: 'Avevo perso il conto della scadenza. Ho inserito la targa e ho scoperto che mi restavano meno di quaranta giorni. Il promemoria me l\'ha poi confermato. Ci voleva.' },
     { id: '4', name: 'Chiara Bianchi',    text: 'Finalmente qualcuno che spiega cosa copre davvero la RC Auto e cosa no. Avevo una polizza da anni e non sapevo che i passeggeri erano già inclusi. Informazione utile, spiegata chiaramente.' },
-    { id: '5', name: 'Luca Fontana',      text: 'Mi hanno chiamato trenta giorni prima della scadenza. Non me l\'aspettavo. Ho rinnovato al telefono in dieci minuti, a un prezzo migliore dell\'anno scorso. Lo uso da due anni ormai.' },
-    { id: '6', name: 'Sara Conti',        text: 'Ho confrontato tre siti. Qui il prezzo era il più basso e non c\'erano costi nascosti al momento del pagamento. Quello che vedevo era quello che pagavo. Semplice.' },
+    { id: '5', name: 'Luca Fontana',      text: 'Mi hanno avvisato trenta giorni prima della scadenza. Non me lo aspettavo. Ho avuto tutto il tempo per organizzarmi senza fretta. Lo uso da due anni ormai.' },
+    { id: '6', name: 'Sara Conti',        text: 'Finalmente un posto dove capisco cosa ho. Stato, scadenza, compagnia — tutto chiaro, senza dover chiamare o andare in agenzia. Informazione precisa, zero complicazioni.' },
   ],
   en: [
-    { id: '1', name: 'Marco Ferretti',    text: 'I\'d never renewed online before. Was worried I\'d mess something up. They walked me through it step by step and the document arrived in minutes. No office could have done better.' },
-    { id: '2', name: 'Giulia Marchetti',  text: 'I had a question about the exclusive-driver clause. Called, a real person answered straight away — no bot, no queue. Explained everything in three minutes. Rare to find that these days.' },
-    { id: '3', name: 'Roberto Esposito',  text: 'I expected to pay the same as with my usual agent. Saved €140 instead. Same cover, different insurer. The saving is there — you just need to know where to look.' },
-    { id: '4', name: 'Chiara Bianchi',    text: 'Finally someone who explains what RC Auto actually covers and what it doesn\'t. Had a policy for years and didn\'t know passengers were already included. Useful, and explained clearly.' },
-    { id: '5', name: 'Luca Fontana',      text: 'They called me thirty days before my expiry. Didn\'t see that coming. Renewed over the phone in ten minutes, better price than last year. Been using them for two years now.' },
-    { id: '6', name: 'Sara Conti',        text: 'I compared three sites. Here the price was the lowest and there were no hidden charges at checkout. What I saw was what I paid. Simple.' },
+    { id: '1', name: 'Marco Ferretti',    text: "I couldn't find my policy details without going through the agency. In ten seconds I had everything: expiry, insurer, bonus-malus class. Didn't expect it to be that instant." },
+    { id: '2', name: 'Giulia Marchetti',  text: "I had a question about the exclusive-driver clause. Called, a real person answered straight away — no bot, no queue. Explained everything in three minutes. Rare to find that these days." },
+    { id: '3', name: 'Roberto Esposito',  text: "I'd lost track of my expiry date. Entered my plate and found I had less than forty days left. Then the reminder confirmed it. Exactly what I needed." },
+    { id: '4', name: 'Chiara Bianchi',    text: "Finally someone who explains what RC Auto actually covers and what it doesn't. Had a policy for years and didn't know passengers were already included. Useful, and explained clearly." },
+    { id: '5', name: 'Luca Fontana',      text: "They warned me thirty days before my expiry. Didn't see that coming. Had plenty of time to sort myself out without rushing. Been using it for two years now." },
+    { id: '6', name: 'Sara Conti',        text: "Finally somewhere I can understand what I have. Status, expiry, insurer — all clear, without having to call or go to an office. Accurate information, no complications." },
   ],
   bg: [
     { id: '1', name: 'Марко Ферети',     text: 'Никога преди не бях подновявал онлайн. Страхувах се да не объркам нещо. Но ме насочиха стъпка по стъпка и документът пристигна за минути. Нито един офис не би го направил по-добре.' },
