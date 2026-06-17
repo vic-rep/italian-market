@@ -13,12 +13,17 @@ export const messages = {
       headline: 'Your car insurance, checked in 10 seconds.',
       subhead:
         'Enter your plate. See your status, renewal date, and insurer — free, no account.',
+      vehicleType: 'Vehicle type',
+      vehicleCar: 'Car',
+      vehicleMoto: 'Motorbike',
       plate: 'Number plate',
       plateTooltip: 'We use your plate to pull your policy details. Nothing else.',
       phone: 'Mobile number',
       phoneTooltip: 'So we can remind you before your policy expires. No spam, never sold.',
       cta: 'Check for free',
       microcopy: '10 seconds. No account. We never sell your data.',
+      plateError: 'Enter a valid plate (e.g. {example}).',
+      phoneError: 'Enter a valid mobile number (e.g. 333 1234567).',
     },
     lifestyle: {
       headline: 'Your agent, online.',
@@ -117,7 +122,20 @@ export const messages = {
       secondaryCta: 'Want a reminder before your policy expires?',
       checkAnother: 'Check another plate',
     },
-    ui: { language: 'Language', theme: 'Theme', loading: 'Checking your policy…' },
+    ui: {
+      language: 'Language',
+      theme: 'Theme',
+      loading: 'Checking your policy…',
+      loadingSteps: [
+        'Retrieving your plate details…',
+        'Querying the insurance databases…',
+        'Identifying the vehicle type…',
+        'Checking your RC Auto coverage…',
+        'Reading the expiry date…',
+        'Keeping your data secure…',
+        'Preparing your result…',
+      ],
+    },
     about: {
       hero: {
         headline: "The best agent you'll never have to visit.",
@@ -177,12 +195,17 @@ export const messages = {
       headline: 'La tua RC Auto, verificata in 10 secondi.',
       subhead:
         'Inserisci la targa. Scopri stato, scadenza e compagnia — gratis, senza registrazione.',
+      vehicleType: 'Tipo di veicolo',
+      vehicleCar: 'Auto',
+      vehicleMoto: 'Moto',
       plate: 'Targa',
       plateTooltip: 'Usiamo la targa solo per recuperare i dati della tua polizza. Nient’altro.',
       phone: 'Numero di cellulare',
       phoneTooltip: 'Per ricordarti la scadenza prima che arrivi. Niente spam, mai ceduto a terzi.',
       cta: 'Controlla gratis',
       microcopy: '10 secondi. Senza registrazione. Non vendiamo mai i tuoi dati.',
+      plateError: 'Inserisci una targa valida (es. {example}).',
+      phoneError: 'Inserisci un numero di cellulare valido (es. 333 1234567).',
     },
     lifestyle: {
       headline: 'Il tuo agente, online.',
@@ -282,7 +305,20 @@ export const messages = {
       secondaryCta: 'Vuoi ricevere un promemoria prima della scadenza?',
       checkAnother: "Controlla un'altra targa",
     },
-    ui: { language: 'Lingua', theme: 'Tema', loading: 'Controllo la tua polizza…' },
+    ui: {
+      language: 'Lingua',
+      theme: 'Tema',
+      loading: 'Controllo la tua polizza…',
+      loadingSteps: [
+        'Recupero i dati della targa…',
+        'Interrogo le banche dati assicurative…',
+        'Identifico il tipo di veicolo…',
+        'Verifico lo stato della copertura RCA…',
+        'Controllo la data di scadenza…',
+        'Proteggo i tuoi dati durante la verifica…',
+        'Preparo il risultato…',
+      ],
+    },
     about: {
       hero: {
         headline: 'Il miglior agente che non dovrai mai andare a trovare.',
@@ -346,12 +382,17 @@ export const messages = {
       headline: 'Твоята автозастраховка, проверена за 10 секунди.',
       subhead:
         'Въведи регистрационния номер. Виж статус, дата на изтичане и застраховател — безплатно, без регистрация.',
+      vehicleType: 'Тип превозно средство',
+      vehicleCar: 'Кола',
+      vehicleMoto: 'Мотор',
       plate: 'Регистрационен номер',
       plateTooltip: 'Използваме номера само за да извлечем данните на полицата ти. Нищо друго.',
       phone: 'Мобилен номер',
       phoneTooltip: 'За да ти напомним преди да изтече полицата. Без спам, никога не го продаваме.',
       cta: 'Провери безплатно',
       microcopy: '10 секунди. Без регистрация. Никога не продаваме данните ти.',
+      plateError: 'Въведи валиден регистрационен номер (напр. {example}).',
+      phoneError: 'Въведи валиден мобилен номер (напр. 333 1234567).',
     },
     lifestyle: {
       headline: 'Твоят агент, онлайн.',
@@ -455,7 +496,20 @@ export const messages = {
       secondaryCta: 'Искаш по-добра цена при подновяване?',
       checkAnother: 'Провери друг номер',
     },
-    ui: { language: 'Език', theme: 'Тема', loading: 'Проверявам полицата ти…' },
+    ui: {
+      language: 'Език',
+      theme: 'Тема',
+      loading: 'Проверявам полицата ти…',
+      loadingSteps: [
+        'Извличам данните по регистрационния номер…',
+        'Проверявам застрахователните бази данни…',
+        'Определям типа на превозното средство…',
+        'Проверявам статуса на Гражданската отговорност…',
+        'Разчитам датата на изтичане…',
+        'Пазя данните ти по време на проверката…',
+        'Подготвям резултата…',
+      ],
+    },
     about: {
       hero: {
         headline: 'Най-добрият агент, при когото не трябва да идваш.',

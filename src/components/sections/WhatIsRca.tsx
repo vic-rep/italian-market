@@ -38,7 +38,7 @@ export function WhatIsRca() {
           </div>
         </div>
 
-        <div className="dark-grid-bg relative flex flex-col items-center justify-center overflow-hidden rounded-2xl bg-footer p-8 text-center text-footer-text sm:p-10">
+        <div className="grid-depth relative flex flex-col items-center justify-center overflow-hidden rounded-2xl bg-footer p-8 text-center text-footer-text sm:p-10">
           <h3 className="relative z-10 max-w-sm text-3xl font-bold text-balance sm:text-4xl lg:text-[2.5rem]">
             {t.rca.ctaTitle}
           </h3>

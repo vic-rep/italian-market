@@ -20,6 +20,24 @@ export type VehicleCategory =
   | 'AUTOCARRO'
   | 'ALTRO'
 
+// What the driver selects in the form's car/motorcycle toggle. It decides which
+// backend endpoint the lookup calls (cars and motorcycles are separate
+// services) — see ENDPOINT_BY_TYPE below.
+export type VehicleType = 'car' | 'motorcycle'
+
+// The toggle selects the endpoint. Fill in the real URLs when they go live.
+const ENDPOINT_BY_TYPE: Record<VehicleType, string> = {
+  car: '/api/rca/auto', // [real URL TBD]
+  motorcycle: '/api/rca/moto', // [real URL TBD]
+}
+
+// Mock-only: the real endpoint's response carries the category; until then we
+// derive it from the toggle so the result card shows a matching vehicle.
+const CATEGORY_BY_TYPE: Record<VehicleType, VehicleCategory> = {
+  car: 'AUTOVEICOLO',
+  motorcycle: 'MOTOCICLO',
+}
+
 export type RcaResult =
   | {
       status: 'insured'
@@ -69,8 +87,43 @@ function pickResult(plate: string): RcaResult {
   return INSURED_SAMPLE
 }
 
-// MOCK — swap for a real API call later. Resolves after ~800ms.
-export async function checkPlate(plate: string, _phone: string): Promise<RcaResult> {
-  await new Promise((resolve) => setTimeout(resolve, MOCK_DELAY_MS))
-  return pickResult(plate)
+// Resolve the mock delay. Defaults to MOCK_DELAY_MS; override with `?delay=ms`
+// (e.g. `?delay=20000`) to rehearse the real ~20–30s lookup and watch the
+// loading card cycle. Mirrors the `?result=` demo override above.
+function resolveDelay(): number {
+  try {
+    const raw = new URLSearchParams(window.location.search).get('delay')
+    if (raw !== null) {
+      const ms = Number(raw)
+      if (Number.isFinite(ms) && ms >= 0) return ms
+    }
+  } catch {
+    // No window/search available — fall through to the default.
+  }
+  return MOCK_DELAY_MS
+}
+
+// Look up a plate's RC Auto status. The vehicle type chooses the endpoint.
+export async function checkPlate(
+  plate: string,
+  _phone: string,
+  vehicleType: VehicleType = 'car',
+): Promise<RcaResult> {
+  const endpoint = ENDPOINT_BY_TYPE[vehicleType]
+  if (import.meta.env.DEV) {
+    // Confirms the toggle routes to the right endpoint while it's still mocked.
+    console.debug(`[checkPlate] ${vehicleType} → ${endpoint}`)
+  }
+
+  // Real call (once the endpoints are live) — replaces the mock below:
+  //   const res = await fetch(endpoint, {
+  //     method: 'POST',
+  //     headers: { 'content-type': 'application/json' },
+  //     body: JSON.stringify({ plate, phone: _phone }),
+  //   })
+  //   return toRcaResult(await res.json())
+
+  // MOCK — resolves after ~800ms by default (override with `?delay=ms`).
+  await new Promise((resolve) => setTimeout(resolve, resolveDelay()))
+  return { ...pickResult(plate), vehicleCategory: CATEGORY_BY_TYPE[vehicleType] }
 }

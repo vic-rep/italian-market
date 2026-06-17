@@ -24,6 +24,7 @@
   --color-footer: var(--c-footer-bg);
   --color-footer-text: var(--c-footer-text);
   --color-stats-band: var(--c-stats-band);
+  --color-danger: var(--c-danger);
 
   /*
     Fluid type scale — linear interpolation between two viewport anchors.
@@ -72,6 +73,8 @@
   --c-footer-bg: #0a1517;
   --c-footer-text: #f9faf5;
   --c-stats-band: #0a1517;
+  /* Semantic danger — validation feedback only (not a brand colour). */
+  --c-danger: #b91c1c;
   color-scheme: light;
 }
 
@@ -90,6 +93,8 @@
   --c-footer-bg: #060d0e;
   --c-footer-text: #f9faf5;
   --c-stats-band: #121f22;
+  /* Semantic danger — validation feedback only (not a brand colour). */
+  --c-danger: #f87171;
   color-scheme: dark;
 }
 
@@ -148,6 +153,62 @@
   pointer-events: none;
 }
 
+/*
+  Animated perspective-grid backdrop with a hover "zoom into the grid" depth
+  effect. Two copies of the same grid PNG sit at different scales + opacities:
+  the near layer (::after) reads as closer, the far layer (::before) sits back.
+  On hover the near layer rushes forward and fades out while the far layer
+  advances and brightens — together they imitate zooming toward the vanishing
+  point, a subtle 3D pull. Both layers stay below content (which uses z-10).
+*/
+.grid-depth::before,
+.grid-depth::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('/perspective-grid.png');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  transform-origin: bottom center;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition:
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.85s ease;
+}
+/* Far layer — faint, sits back. */
+.grid-depth::before {
+  opacity: 0.18;
+  transform: scale(1);
+}
+/* Near layer — already scaled up so it reads as closer. */
+.grid-depth::after {
+  opacity: 0.14;
+  transform: scale(1.9);
+}
+.grid-depth:hover::before {
+  opacity: 0.3;
+  transform: scale(1.5);
+}
+.grid-depth:hover::after {
+  opacity: 0;
+  transform: scale(3);
+}
+@media (prefers-reduced-motion: reduce) {
+  .grid-depth::before,
+  .grid-depth::after,
+  .grid-depth:hover::before,
+  .grid-depth:hover::after {
+    transition: none;
+    transform: none;
+  }
+  .grid-depth::after {
+    opacity: 0.14;
+  }
+}
+
 /* ── View Transitions ────────────────────────────────────────────────────────
    Named transition groups:
    • result-card  — the check card container (form ↔ result card)
@@ -200,6 +261,21 @@
       animation: none;
     }
   }
+}
+
+/* ── Loading card ────────────────────────────────────────────────────────────
+   The status line crossfades as it advances — keyed on the step index so each
+   new line replays the animation.
+*/
+.loading-line {
+  animation: loading-line-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes loading-line-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loading-line { animation: none; }
 }
 
 /* ── Result card row cascade ─────────────────────────────────────────────── */

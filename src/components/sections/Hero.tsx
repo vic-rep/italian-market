@@ -2,13 +2,23 @@ import { useEffect, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import { flushSync } from 'react-dom'
 import { motion, useReducedMotion } from 'motion/react'
-import { checkPlate, type RcaResult } from '../../api/checkPlate'
+import { checkPlate, type RcaResult, type VehicleType } from '../../api/checkPlate'
 import { useI18n } from '../../i18n/I18nContext'
+import { fmt } from '../../i18n/messages'
+import {
+  isValidPhone,
+  isValidPlate,
+  normalizePhone,
+  normalizePlate,
+  PLATE_EXAMPLE,
+} from '../../utils/validation'
 import { Container } from '../shared/Container'
 import { Tooltip } from '../shared/Tooltip'
 import { ShieldCheckIcon, UsersIcon } from '../shared/icons'
 import { FOCUS_FORM_EVENT } from '../shared/formFocus'
+import { LoadingCard } from './LoadingCard'
 import { ResultCard } from './ResultCard'
+import { VehicleToggle } from './VehicleToggle'
 
 function startViewTransition(cb: () => void) {
   if ('startViewTransition' in document) {
@@ -26,13 +36,24 @@ export function Hero() {
   const [result, setResult] = useState<RcaResult | null>(null)
   const [plate, setPlate] = useState('')
   const [phone, setPhone] = useState('')
+  const [vehicleType, setVehicleType] = useState<VehicleType>('car')
   const [submittedPlate, setSubmittedPlate] = useState('')
+  // Errors only surface once a field has been blurred or submission attempted.
+  const [touched, setTouched] = useState({ plate: false, phone: false })
   const plateRef = useRef<HTMLInputElement>(null)
+  const phoneRef = useRef<HTMLInputElement>(null)
   const reduce = useReducedMotion()
+
+  const plateError =
+    touched.plate && !isValidPlate(plate, vehicleType)
+      ? fmt(t.hero.plateError, { example: PLATE_EXAMPLE[vehicleType] })
+      : ''
+  const phoneError = touched.phone && !isValidPhone(phone) ? t.hero.phoneError : ''
 
   function reset() {
     setStatus('idle')
     setResult(null)
+    setTouched({ plate: false, phone: false })
   }
 
   // Re-open + focus the form when the logo / nav / repeat-CTA asks for it.
@@ -52,12 +73,22 @@ export function Hero() {
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
-    if (!plate.trim() || !phone.trim()) return
-    const p = plate.trim()
-    setSubmittedPlate(p.toUpperCase())
-    setStatus('loading')
-    const res = await checkPlate(p, phone.trim())
-    // Wrap the state update so the form → result card morphs via View Transitions
+    setTouched({ plate: true, phone: true })
+    const okPlate = isValidPlate(plate, vehicleType)
+    const okPhone = isValidPhone(phone)
+    if (!okPlate || !okPhone) {
+      // Move focus to the first field that needs fixing.
+      ;(okPlate ? phoneRef : plateRef).current?.focus()
+      return
+    }
+    const cleanPlate = normalizePlate(plate)
+    setSubmittedPlate(cleanPlate)
+    // Morph the form → loading card, then the loading card → result card once
+    // the lookup resolves — both via View Transitions (shared `result-card`).
+    startViewTransition(() => {
+      flushSync(() => setStatus('loading'))
+    })
+    const res = await checkPlate(cleanPlate, normalizePhone(phone), vehicleType)
     startViewTransition(() => {
       flushSync(() => {
         setResult(res)
@@ -65,8 +96,6 @@ export function Hero() {
       })
     })
   }
-
-  const isLoading = status === 'loading'
 
   return (
     <section id="top" className="dark-grid-bg bg-footer">
@@ -106,13 +135,17 @@ export function Hero() {
         <div id="check" className="w-full max-w-md justify-self-stretch lg:flex lg:min-h-[480px] lg:flex-col lg:justify-center lg:justify-self-end">
           {status === 'result' && result ? (
             <ResultCard result={result} plate={submittedPlate} onReset={reset} />
+          ) : status === 'loading' ? (
+            <LoadingCard />
           ) : (
             <form
               onSubmit={handleSubmit}
-              aria-busy={isLoading}
+              noValidate
               className="vt-result rounded-3xl border border-border bg-surface p-6 shadow-sm sm:p-7"
             >
-              <div>
+              <VehicleToggle value={vehicleType} onChange={setVehicleType} />
+
+              <div className="mt-4">
                 <div className="mb-1.5 flex items-center gap-1.5">
                   <label htmlFor="plate-input" className="text-sm font-semibold text-primary">
                     {t.hero.plate}
@@ -125,13 +158,24 @@ export function Hero() {
                   ref={plateRef}
                   value={plate}
                   onChange={(event) => setPlate(event.target.value)}
+                  onBlur={() => setTouched((prev) => ({ ...prev, plate: true }))}
                   required
                   autoComplete="off"
                   autoCapitalize="characters"
                   spellCheck={false}
-                  disabled={isLoading}
-                  className="vt-plate w-full rounded-xl border border-border bg-page px-4 py-3 text-base font-medium tracking-wide text-primary uppercase transition-[border-color,box-shadow] focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-60"
+                  aria-invalid={!!plateError}
+                  aria-describedby={plateError ? 'plate-error' : undefined}
+                  className={`vt-plate w-full rounded-xl border bg-page px-4 py-3 text-base font-medium tracking-wide text-primary uppercase transition-[border-color,box-shadow] focus:outline-none focus:ring-2 ${
+                    plateError
+                      ? 'border-danger focus:border-danger focus:ring-danger'
+                      : 'border-border focus:border-accent focus:ring-accent'
+                  }`}
                 />
+                {plateError && (
+                  <p id="plate-error" role="alert" className="mt-1.5 text-sm text-danger">
+                    {plateError}
+                  </p>
+                )}
               </div>
 
               <div className="mt-4">
@@ -146,31 +190,32 @@ export function Hero() {
                   name="phone"
                   type="tel"
                   inputMode="tel"
+                  ref={phoneRef}
                   value={phone}
                   onChange={(event) => setPhone(event.target.value)}
+                  onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
                   required
                   autoComplete="tel"
-                  disabled={isLoading}
-                  className="w-full rounded-xl border border-border bg-page px-4 py-3 text-base text-primary transition-[border-color,box-shadow] focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent disabled:opacity-60"
+                  aria-invalid={!!phoneError}
+                  aria-describedby={phoneError ? 'phone-error' : undefined}
+                  className={`w-full rounded-xl border bg-page px-4 py-3 text-base text-primary transition-[border-color,box-shadow] focus:outline-none focus:ring-2 ${
+                    phoneError
+                      ? 'border-danger focus:border-danger focus:ring-danger'
+                      : 'border-border focus:border-accent focus:ring-accent'
+                  }`}
                 />
+                {phoneError && (
+                  <p id="phone-error" role="alert" className="mt-1.5 text-sm text-danger">
+                    {phoneError}
+                  </p>
+                )}
               </div>
 
               <button
                 type="submit"
-                disabled={isLoading}
-                className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-action px-5 py-3.5 text-base font-semibold text-on-action transition-[filter,transform] duration-200 hover:brightness-95 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-80"
+                className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-action px-5 py-3.5 text-base font-semibold text-on-action transition-[filter] duration-200 hover:brightness-95"
               >
-                {isLoading ? (
-                  <>
-                    <span
-                      aria-hidden="true"
-                      className="h-5 w-5 animate-spin rounded-full border-2 border-on-action/30 border-t-on-action"
-                    />
-                    <span role="status">{t.ui.loading}</span>
-                  </>
-                ) : (
-                  t.hero.cta
-                )}
+                {t.hero.cta}
               </button>
 
               <p className="mt-3 text-center text-sm text-secondary">{t.hero.microcopy}</p>
