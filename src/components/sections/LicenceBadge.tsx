@@ -42,10 +42,10 @@ export function LicenceBadge() {
             {/* Copy panel */}
             <div className="flex flex-col justify-center bg-surface px-10 py-14 lg:px-14">
               <h2 className="text-3xl font-semibold sm:text-4xl">
-                {t.about.licence.heading}
+                {t.licence.heading}
               </h2>
               <p className="mt-5 max-w-xl leading-relaxed text-secondary">
-                {t.about.licence.body}
+                {t.licence.body}
               </p>
             </div>
           </div>

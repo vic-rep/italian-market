@@ -1,10 +1,9 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { I18nProvider } from './i18n/I18nContext'
 import { ThemeProvider } from './theme/ThemeContext'
 import { TopBar } from './components/sections/TopBar'
 import { Footer } from './components/sections/Footer'
 import { HomePage } from './pages/HomePage'
-import { AboutPage } from './pages/AboutPage'
 import { ContactPage } from './pages/ContactPage'
 import { PrivacyPage } from './pages/PrivacyPage'
 import { TermsPage } from './pages/TermsPage'
@@ -17,11 +16,12 @@ function Layout() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/cookies" element={<CookiesPage />} />
+          {/* Unknown paths (incl. the removed /about) fall back to home. */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
       <Footer />

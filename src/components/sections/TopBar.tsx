@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useI18n } from '../../i18n/I18nContext'
 import { Container } from '../shared/Container'
 import { LanguageSwitcher } from '../shared/LanguageSwitcher'
@@ -72,9 +72,6 @@ export function TopBar() {
             <a href="/#rca" className="text-sm font-medium text-secondary transition-colors hover:text-primary">
               {t.nav.whatIsRca}
             </a>
-            <Link to="/about" className="text-sm font-medium text-secondary transition-colors hover:text-primary">
-              {t.nav.about}
-            </Link>
           </nav>
 
           {/* Controls — always visible */}

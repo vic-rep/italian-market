@@ -8,7 +8,7 @@
 
 export const messages = {
   en: {
-    nav: { howItWorks: 'How it works', whatIsRca: 'What is RC Auto', about: 'About us' },
+    nav: { howItWorks: 'How it works', whatIsRca: 'What is RC Auto' },
     hero: {
       headline: 'Your car insurance, checked in 10 seconds.',
       subhead:
@@ -105,7 +105,7 @@ export const messages = {
       companyLine: 'Trusti — a licensed insurance broker. Reg. [IT number].',
       colCompany: 'Company',
       colLegal: 'Legal',
-      company: [{ label: 'About', href: '/about' }, { label: 'Contact', href: '/contact' }],
+      company: [{ label: 'Contact', href: '/contact' }],
       legal: [{ label: 'Privacy', href: '/privacy' }, { label: 'Terms', href: '/terms' }, { label: 'Cookie', href: '/cookies' }],
       humanLine: 'Questions? Call us — a person answers. [phone] · [hours]',
     },
@@ -136,61 +136,14 @@ export const messages = {
         'Preparing your result…',
       ],
     },
-    about: {
-      hero: {
-        headline: "The best agent you'll never have to visit.",
-        subhead: 'We think insurance should be the easy part of your day — not an afternoon in an office. So we built the agent who sorts it, online.',
-      },
-      origin: {
-        heading: "We've killed a queue before.",
-        body: 'Our founders came from Uber, where getting across a city became a single tap. They looked at insurance — still a number, still a waiting room, still paperwork — and saw the same problem, unsolved. So they built Trusti: the agent who knows every insurer and answers the phone. Online.',
-      },
-      stats: [
-        { value: '14,000', label: 'customers sorted' },
-        { value: '30+',    label: 'people, and growing' },
-        { value: '4.9',    label: 'on Google · 981 reviews' },
-      ],
-      licence: {
-        heading: 'Licensed in Europe. Responsible to you.',
-        body: "We're authorized by the Financial Supervisory Commission and passported to operate across the EU — live today in Bulgaria and Italy, building for the rest. That licence isn't just paperwork. It means we're legally obliged to give you an honest recommendation, protect your data, and answer for every policy we place — to you and to the regulator.",
-      },
-      certificate: {
-        heading: 'Authorized. Regulated. Responsible to you.',
-        body: "The licence from the Financial Supervisory Commission isn't just a document. It means we're obliged to give you an honest choice, to protect your data, and to be accountable — to you, and to the State.",
-        regNo: '№936-ЗБ / 05.06.2024',
-        badgeLabel: 'СЕРТИФИЦИРАН БРОКЕР',
-        authority: 'КОМИСИЯ ЗА ФИНАНСОВ НАДЗОР',
-      },
-      team: {
-        heading: 'The people who pick up.',
-        body: "A 30-strong team who know the industry inside out — and answer the phone. Not a faceless platform. The agent you'd want, if you got to pick.",
-      },
-      europe: {
-        heading: 'Two countries today. A continent in mind.',
-        body: "We started in Bulgaria and we're live in Italy. The goal is simple: the online agent Europe actually prefers — one market at a time.",
-      },
-      promises: {
-        heading: 'What you can expect from us',
-        items: [
-          { title: 'Compare all. Save more.',       desc: 'Every insurer, side by side — so your money goes further.' },
-          { title: 'Fast. Clear. Yours.',           desc: 'Insurance that works the way everything else on your phone does.' },
-          { title: 'Two minutes, not an afternoon', desc: 'All of it, on your phone.' },
-          { title: 'With you, start to finish.',    desc: 'A renewal, a question, a claim — someone here always picks up.' },
-        ],
-      },
-      faq: [
-        { q: 'Are you an insurer or a broker?',  a: "A broker — and an independent one. We don't sell our own policies; we compare every insurer and find you the best one. You buy through us, the cover is theirs." },
-        { q: 'Who regulates you?',               a: "The Financial Supervisory Commission. We're a licensed broker (Reg. №936-ЗБ/05.06.2024), passported to operate across the EU." },
-        { q: 'Which countries do you cover?',    a: "We're live in Bulgaria and Italy today, with more of Europe to come." },
-        { q: 'How do you make money?',           a: "The insurer pays us a commission when you buy — the same whether you come through us or walk into their office. Using Trusti costs you nothing extra." },
-        { q: 'Is my data safe?',                 a: 'Yes. Your details are encrypted, used only to find and manage your cover, and never sold. Ask us to delete them anytime.' },
-      ],
-      cta: { headline: "See what we'd find for you.", button: 'Check for free' },
+    licence: {
+      heading: 'Licensed in Europe. Responsible to you.',
+      body: "We're authorized by the Financial Supervisory Commission and passported to operate across the EU — live today in Bulgaria and Italy, building for the rest. That licence isn't just paperwork. It means we're legally obliged to give you an honest recommendation, protect your data, and answer for every policy we place — to you and to the regulator.",
     },
   },
 
   it: {
-    nav: { howItWorks: 'Come funziona', whatIsRca: "Cos'è la RC Auto", about: 'Chi siamo' },
+    nav: { howItWorks: 'Come funziona', whatIsRca: "Cos'è la RC Auto" },
     hero: {
       headline: 'La tua RC Auto, verificata in 10 secondi.',
       subhead:
@@ -288,7 +241,7 @@ export const messages = {
       companyLine: 'Trusti — broker assicurativo autorizzato. Iscr. [n. IT].',
       colCompany: 'Azienda',
       colLegal: 'Note legali',
-      company: [{ label: 'Chi siamo', href: '/about' }, { label: 'Contatti', href: '/contact' }],
+      company: [{ label: 'Contatti', href: '/contact' }],
       legal: [{ label: 'Privacy', href: '/privacy' }, { label: 'Termini', href: '/terms' }, { label: 'Cookie', href: '/cookies' }],
       humanLine: 'Domande? Chiamaci — risponde una persona. [telefono] · [orari]',
     },
@@ -319,56 +272,9 @@ export const messages = {
         'Preparo il risultato…',
       ],
     },
-    about: {
-      hero: {
-        headline: 'Il miglior agente che non dovrai mai andare a trovare.',
-        subhead: "L'assicurazione dovrebbe essere la parte semplice della giornata — non un pomeriggio in ufficio. Così abbiamo creato l'agente che la risolve, online.",
-      },
-      origin: {
-        heading: 'Abbiamo già eliminato le code.',
-        body: "I nostri fondatori venivano da Uber, dove attraversare una città era diventato un singolo tocco. Hanno guardato il settore assicurativo — ancora un numero, ancora una sala d'attesa, ancora burocrazia — e hanno visto lo stesso problema, irrisolto. Così hanno fondato Trusti: l'agente che conosce ogni assicuratore e risponde al telefono. Online.",
-      },
-      stats: [
-        { value: '14,000', label: 'clienti assistiti' },
-        { value: '30+',    label: 'persone, e cresciamo' },
-        { value: '4.9',    label: 'su Google · 981 recensioni' },
-      ],
-      licence: {
-        heading: 'Autorizzati in Europa. Responsabili verso di te.',
-        body: "Siamo autorizzati dalla Financial Supervisory Commission e abilitati a operare in tutta l'UE — attivi oggi in Bulgaria e Italia, in crescita verso il resto. Quella licenza non è burocrazia. Significa che siamo giuridicamente obbligati a darti una scelta onesta, proteggere i tuoi dati e rispondere di ogni polizza — davanti a te e al regolatore.",
-      },
-      certificate: {
-        heading: 'Autorizzati. Regolamentati. Responsabili verso di te.',
-        body: "L'autorizzazione della Financial Supervisory Commission non è solo un documento. Significa che siamo obbligati a darti una scelta onesta, a proteggere i tuoi dati e a rispondere delle nostre azioni — davanti a te e allo Stato.",
-        regNo: '№936-ЗБ / 05.06.2024',
-        badgeLabel: 'СЕРТИФИЦИРАН БРОКЕР',
-        authority: 'КОМИСИЯ ЗА ФИНАНСОВ НАДЗОР',
-      },
-      team: {
-        heading: 'Le persone che rispondono.',
-        body: 'Un team di 30 persone che conosce il settore a fondo — e risponde al telefono. Non una piattaforma anonima. L\'agente che vorresti, se potessi scegliere.',
-      },
-      europe: {
-        heading: 'Due paesi oggi. Un continente in testa.',
-        body: "Abbiamo iniziato in Bulgaria e siamo attivi in Italia. L'obiettivo è semplice: diventare l'agente online che l'Europa sceglie davvero — un mercato alla volta.",
-      },
-      promises: {
-        heading: 'Cosa puoi aspettarti da noi',
-        items: [
-          { title: 'Confronta tutto. Risparmia di più.',  desc: "Tutte le compagnie, una accanto all'altra — così i tuoi soldi rendono di più." },
-          { title: 'Veloce. Chiaro. Tuo.',                desc: 'Un\'assicurazione che funziona come tutto il resto sul tuo telefono.' },
-          { title: 'Due minuti, non un pomeriggio',       desc: 'Tutto dal tuo telefono.' },
-          { title: "Con te, dall'inizio alla fine.",      desc: 'Un rinnovo, una domanda, un sinistro — da noi c\'è sempre qualcuno che risponde.' },
-        ],
-      },
-      faq: [
-        { q: 'Siete una compagnia assicurativa o un broker?', a: "Un broker — e indipendente. Non vendiamo polizze nostre; confrontiamo ogni assicuratore e troviamo la migliore per te. Acquisti tramite noi, la copertura è loro." },
-        { q: 'Chi vi regolamenta?',         a: "La Financial Supervisory Commission. Siamo un broker autorizzato (Reg. №936-ЗБ/05.06.2024), abilitato a operare in tutta l'UE." },
-        { q: 'In quali paesi operate?',     a: 'Siamo attivi in Bulgaria e Italia, con altri mercati europei in arrivo.' },
-        { q: 'Come guadagnate?',            a: 'L\'assicuratore ci paga una commissione quando acquisti — la stessa che otterrebbe portandoti direttamente al loro sportello. Usare Trusti non ti costa nulla in più.' },
-        { q: 'I miei dati sono al sicuro?', a: 'Sì. I tuoi dati sono crittografati, usati solo per trovare e gestire la tua copertura, e non vengono mai venduti. Puoi chiederci di cancellarli in qualsiasi momento.' },
-      ],
-      cta: { headline: 'Scopri cosa troveremmo per te.', button: 'Controlla gratis' },
+    licence: {
+      heading: 'Autorizzati in Europa. Responsabili verso di te.',
+      body: "Siamo autorizzati dalla Financial Supervisory Commission e abilitati a operare in tutta l'UE — attivi oggi in Bulgaria e Italia, in crescita verso il resto. Quella licenza non è burocrazia. Significa che siamo giuridicamente obbligati a darti una scelta onesta, proteggere i tuoi dati e rispondere di ogni polizza — davanti a te e al regolatore.",
     },
   },
 
@@ -376,7 +282,6 @@ export const messages = {
     nav: {
       howItWorks: 'Как работи',
       whatIsRca: 'Какво е Гражданска отговорност',
-      about: 'За нас',
     },
     hero: {
       headline: 'Твоята автозастраховка, проверена за 10 секунди.',
@@ -479,7 +384,7 @@ export const messages = {
       companyLine: 'Trusti — лицензиран застрахователен брокер. Рег. № [номер].',
       colCompany: 'Компания',
       colLegal: 'Правни',
-      company: [{ label: 'За нас', href: '/about' }, { label: 'Контакти', href: '/contact' }],
+      company: [{ label: 'Контакти', href: '/contact' }],
       legal: [{ label: 'Поверителност', href: '/privacy' }, { label: 'Условия', href: '/terms' }, { label: 'Бисквитки', href: '/cookies' }],
       humanLine: 'Въпроси? Обади ни се — вдига човек. [телефон] · [часове]',
     },
@@ -510,56 +415,9 @@ export const messages = {
         'Подготвям резултата…',
       ],
     },
-    about: {
-      hero: {
-        headline: 'Най-добрият агент, при когото не трябва да идваш.',
-        subhead: 'Застраховката трябва да е лесната част на деня ти — не едно следобедче в офис. Затова създадохме агента, който я оправя — онлайн.',
-      },
-      origin: {
-        heading: 'Вече сме убивали опашки.',
-        body: 'Основателите ни идват от Uber, където да прекосиш града стана въпрос на едно докосване. Погледнаха застраховането — пак номер в опашка, пак чакалня, пак документи — и видяха същия проблем, неразрешен. Затова създадоха Trusti: агентът, който познава всеки застраховател и вдига телефона. Онлайн.',
-      },
-      stats: [
-        { value: '14,000', label: 'обслужени клиенти' },
-        { value: '30+',    label: 'души, и растем' },
-        { value: '4.9',    label: 'в Google · 981 отзива' },
-      ],
-      licence: {
-        heading: 'Лицензирани в Европа. Отговорни пред теб.',
-        body: 'Лицензирани сме от Комисията за финансов надзор и упълномощени да работим в целия ЕС — активни в България и Италия, и изграждаме останалото. Лицензът не е просто формалност. Означава, че сме задължени по закон да ти дадем честна препоръка, да защитим данните ти и да носим отговорност за всяка полица — пред теб и пред регулатора.',
-      },
-      certificate: {
-        heading: 'Упълномощени. Регулирани. Отговорни пред теб.',
-        body: 'Лицензът от Комисията за финансов надзор не е просто документ. Означава, че сме длъжни да ти предложим честен избор, да защитим данните ти и да носим отговорност — пред теб и пред държавата.',
-        regNo: '№936-ЗБ / 05.06.2024',
-        badgeLabel: 'СЕРТИФИЦИРАН БРОКЕР',
-        authority: 'КОМИСИЯ ЗА ФИНАНСОВ НАДЗОР',
-      },
-      team: {
-        heading: 'Хората, които вдигат.',
-        body: 'Екип от 30 души, които познават индустрията отвътре — и вдигат телефона. Не безлична платформа. Агентът, когото би избрал, ако имаш избор.',
-      },
-      europe: {
-        heading: 'Две страни днес. Един континент в плана.',
-        body: 'Започнахме от България и сме активни в Италия. Целта е проста: да станем онлайн агентът, когото Европа наистина предпочита — един пазар в даден момент.',
-      },
-      promises: {
-        heading: 'Какво да очакваш от нас',
-        items: [
-          { title: 'Сравни всичко. Спести повече.',   desc: 'Всички застрахователи, един до друг — за да отиват парите ти по-далеч.' },
-          { title: 'Бързо. Ясно. Твое.',              desc: 'Застраховка, която работи така, както всичко останало на телефона ти.' },
-          { title: 'Две минути, не цял следобед',     desc: 'Всичко от телефона ти.' },
-          { title: 'С теб, от начало до край.',       desc: 'Подновяване, въпрос, щета — от наша страна винаги има някой, който вдига.' },
-        ],
-      },
-      faq: [
-        { q: 'Застраховател ли сте или брокер?', a: 'Брокер — и независим. Не продаваме собствени полици; сравняваме всеки застраховател и намираме най-добрия за теб. Купуваш чрез нас, покритието е тяхно.' },
-        { q: 'Кой ви регулира?',               a: 'Комисията за финансов надзор. Ние сме лицензиран брокер (Рег. №936-ЗБ/05.06.2024), с право да работим в целия ЕС.' },
-        { q: 'В кои страни работите?',         a: 'Активни сме в България и Италия, с още европейски пазари в план.' },
-        { q: 'Как печелите?',                  a: 'Застрахователят ни плаща комисиона, когато купиш — същата, независимо дали ни се обърнеш или влезеш директно в техния офис. Trusti не те струва нищо повече.' },
-        { q: 'Данните ми в безопасност ли са?', a: 'Да. Данните ти са криптирани, използват се само за намиране и управление на покритието ти и никога не се продават. Поискай ни да ги изтрием по всяко време.' },
-      ],
-      cta: { headline: 'Виж какво бихме намерили за теб.', button: 'Провери безплатно' },
+    licence: {
+      heading: 'Лицензирани в Европа. Отговорни пред теб.',
+      body: 'Лицензирани сме от Комисията за финансов надзор и упълномощени да работим в целия ЕС — активни в България и Италия, и изграждаме останалото. Лицензът не е просто формалност. Означава, че сме задължени по закон да ти дадем честна препоръка, да защитим данните ти и да носим отговорност за всяка полица — пред теб и пред регулатора.',
     },
   },
 } as const
