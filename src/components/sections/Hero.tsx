@@ -165,10 +165,10 @@ export function Hero() {
                   spellCheck={false}
                   aria-invalid={!!plateError}
                   aria-describedby={plateError ? 'plate-error' : undefined}
-                  className={`vt-plate w-full rounded-xl border bg-page px-4 py-3 text-base font-medium tracking-wide text-primary uppercase transition-[border-color,box-shadow] focus:outline-none focus:ring-2 ${
+                  className={`vt-plate w-full rounded-xl border bg-page px-4 py-3 text-base font-medium tracking-wide uppercase transition-[border-color,box-shadow] focus:outline-none focus:ring-2 ${
                     plateError
-                      ? 'border-danger focus:border-danger focus:ring-danger'
-                      : 'border-border focus:border-accent focus:ring-accent'
+                      ? 'border-danger text-danger focus:border-danger focus:ring-danger'
+                      : 'border-border text-primary focus:border-accent focus:ring-accent'
                   }`}
                 />
                 {plateError && (
@@ -198,10 +198,10 @@ export function Hero() {
                   autoComplete="tel"
                   aria-invalid={!!phoneError}
                   aria-describedby={phoneError ? 'phone-error' : undefined}
-                  className={`w-full rounded-xl border bg-page px-4 py-3 text-base text-primary transition-[border-color,box-shadow] focus:outline-none focus:ring-2 ${
+                  className={`w-full rounded-xl border bg-page px-4 py-3 text-base transition-[border-color,box-shadow] focus:outline-none focus:ring-2 ${
                     phoneError
-                      ? 'border-danger focus:border-danger focus:ring-danger'
-                      : 'border-border focus:border-accent focus:ring-accent'
+                      ? 'border-danger text-danger focus:border-danger focus:ring-danger'
+                      : 'border-border text-primary focus:border-accent focus:ring-accent'
                   }`}
                 />
                 {phoneError && (
