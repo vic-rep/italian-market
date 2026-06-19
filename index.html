@@ -28,7 +28,7 @@
           }
           document.documentElement.setAttribute('data-theme', t);
           var l = localStorage.getItem('trusti-locale');
-          if (l !== 'en' && l !== 'it' && l !== 'bg') l = 'it';
+          if (l !== 'en' && l !== 'it') l = 'it';
           document.documentElement.lang = l;
         } catch (e) {}
       })();

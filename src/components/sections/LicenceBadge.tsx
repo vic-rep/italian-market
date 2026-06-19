@@ -8,7 +8,6 @@ export function LicenceBadge() {
   const reduce = useReducedMotion()
   const kfnBadge = asset(
     locale === 'en' ? '/KFN-certified-EN.svg'
-    : locale === 'bg' ? '/KFN-certified-BG.svg'
     : '/KFN-certified-IT.svg'
   )
 
