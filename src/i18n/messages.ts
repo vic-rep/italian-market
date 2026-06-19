@@ -10,7 +10,7 @@ export const messages = {
   en: {
     nav: { howItWorks: 'How it works', whatIsRca: 'What is RC Auto' },
     hero: {
-      headline: 'Your car insurance, checked in 10 seconds.',
+      headline: 'The fastest way to check your RC Auto.',
       subhead:
         'Enter your plate. See your status, renewal date, and insurer — free, no account.',
       vehicleType: 'Vehicle type',
@@ -145,7 +145,7 @@ export const messages = {
   it: {
     nav: { howItWorks: 'Come funziona', whatIsRca: "Cos'è la RC Auto" },
     hero: {
-      headline: 'La tua RC Auto, verificata in 10 secondi.',
+      headline: 'Il modo più veloce per verificare la tua RC Auto.',
       subhead:
         'Inserisci la targa. Scopri stato, scadenza e compagnia — gratis, senza registrazione.',
       vehicleType: 'Tipo di veicolo',
@@ -277,166 +277,21 @@ export const messages = {
       body: "Siamo autorizzati dalla Financial Supervisory Commission e abilitati a operare in tutta l'UE — attivi oggi in Bulgaria e Italia, in crescita verso il resto. Quella licenza non è burocrazia. Significa che siamo giuridicamente obbligati a darti una scelta onesta, proteggere i tuoi dati e rispondere di ogni polizza — davanti a te e al regolatore.",
     },
   },
-
-  bg: {
-    nav: {
-      howItWorks: 'Как работи',
-      whatIsRca: 'Какво е Гражданска отговорност',
-    },
-    hero: {
-      headline: 'Твоята автозастраховка, проверена за 10 секунди.',
-      subhead:
-        'Въведи регистрационния номер. Виж статус, дата на изтичане и застраховател — безплатно, без регистрация.',
-      vehicleType: 'Тип превозно средство',
-      vehicleCar: 'Кола',
-      vehicleMoto: 'Мотор',
-      plate: 'Регистрационен номер',
-      plateTooltip: 'Използваме номера само за да извлечем данните на полицата ти. Нищо друго.',
-      phone: 'Мобилен номер',
-      phoneTooltip: 'За да ти напомним преди да изтече полицата. Без спам, никога не го продаваме.',
-      cta: 'Провери безплатно',
-      microcopy: '10 секунди. Без регистрация. Никога не продаваме данните ти.',
-      plateError: 'Въведи валиден регистрационен номер (напр. {example}).',
-      phoneError: 'Въведи валиден мобилен номер (напр. 333 1234567).',
-    },
-    lifestyle: {
-      headline: 'Твоят агент, онлайн.',
-      body: 'Без офис, без опашки. Провери полицата, сравни всички застрахователи и поднови на правилната цена — направо от телефона.',
-      bullets: ['Без офис.', 'Без бюрокрация.', 'Без опашки.', 'Бързо и лесно.', 'Сигурно и поверително.'],
-      imageAlt: 'Човек проверява автозастраховката си от телефона',
-    },
-    trust: { regulated: 'Лицензиран и регулиран', drivers: '14 000+ шофьори' },
-    social: {
-      heading: 'Нула изненади. Питай тези, които вече са подновили.',
-      rating: 'Средната оценка на шофьорите, подновили с нас.',
-    },
-    how: {
-      heading: 'Как работи',
-      steps: [
-        { title: 'Въведи регистрационния номер', desc: 'Само номерът и мобилният ти телефон. Около десет секунди, без регистрация.' },
-        { title: 'Виж резултатите веднага',       desc: 'Статус, дата на изтичане и застраховател — веднага на екрана. Без чакане, без обратно обаждане.' },
-        { title: 'Не пропускай подновяването',    desc: 'Получаваш напомняне преди полицата да изтече, за да не оставаш без покритие — и да хванеш най-добрата цена в точния момент.' },
-      ],
-      illExpiry:    'Изтича',
-      illBmClass:   'БМ клас',
-      illBmValue:   'Клас 6',
-      illExpDate:   '15 апр 2026',
-      illCallLabel: 'Напомняне активирано',
-      illCallBody:  'Обаждаме се 30 дни преди',
-    },
-    rca: {
-      heading: 'Какво е Гражданска отговорност?',
-      body: 'Гражданската отговорност е задължителна. Покрива щетите, които причиняваш на други хора, докато шофираш. Не твоята кола. Ето какво включва и какво не.',
-      ctaTitle: 'Твоята Гражданска отговорност наред ли е?',
-      ctaButton: 'Обади ни се сега',
-      ctaNote: 'Отговаря ти човек, не бот.',
-      covered: [
-        'Телесни повреди на трети лица',
-        'Чужди превозни средства и имущество',
-        'Твоите пътници',
-      ],
-      notCovered: [
-        'Твоята кола',
-        'Кражба и пожар',
-        'Вандализъм',
-        'Природни бедствия',
-        'Травми на виновния водач',
-      ],
-    },
-    price: {
-      factorsHeading: 'От какво зависи цената?',
-      factors: [
-        'Тип и мощност на автомобила',
-        'Къде живееш',
-        'Възраст и опит зад волана',
-        'Твоят бонус-малус клас',
-      ],
-      chartHeading: 'Колко струва Гражданска отговорност в Италия през 2026?',
-      chartSubhead:
-        'Цената се различава силно по региони. Ето ориентировъчната средна годишна стойност.',
-      footnote: 'Илюстративни данни — ще бъдат заменени с реални източници преди старта.',
-      colRegion: 'Регион',
-      colPrice: 'Средно €/година',
-      mapHint: 'Докоснете регион, за да видите средната цена.',
-      statMostExpensive: 'Най-скъп',
-      statCheapest: 'Най-евтин',
-      statAverage: 'Средно за страната',
-      perYear: 'на година',
-      legendLow: 'По-ниско',
-      legendHigh: 'По-високо',
-      perYearShort: '/год.',
-    },
-    faq: {
-      heading: 'Често задавани въпроси',
-      q1: 'Наистина ли е безплатно?',
-      a1: 'Да. Проверката на статуса не струва нищо и не е нужна регистрация.',
-      q2: 'Какво правите с номера ми?',
-      a2: 'Използваме го, за да ти напомним преди изтичане. Не го продаваме, без спам.',
-      q3: 'Застраховател ли сте?',
-      a3: 'Не — ние сме регулиран брокер. Сравняваме всички застрахователи, намираме най-добрата цена и сключваш чрез нас.',
-      q4: 'Мога ли да проверя всеки номер?',
-      a4: 'Само твоя. С проверката потвърждаваш, че автомобилът е твой.',
-      q5: 'Колко струва Гражданска отговорност в моя регион?',
-      a5: 'Ориентировъчни средни годишни стойности по регион — илюстративни данни, не оферта.',
-    },
-    repeatCta: { headline: 'Твоят номер. Десет секунди. Готово.', cta: 'Провери безплатно' },
-    footer: {
-      companyLine: 'Trusti — лицензиран застрахователен брокер. Рег. № [номер].',
-      colCompany: 'Компания',
-      colLegal: 'Правни',
-      company: [{ label: 'Контакти', href: '/contact' }],
-      legal: [{ label: 'Поверителност', href: '/privacy' }, { label: 'Условия', href: '/terms' }, { label: 'Бисквитки', href: '/cookies' }],
-      humanLine: 'Въпроси? Обади ни се — вдига човек. [телефон] · [часове]',
-    },
-    result: {
-      header: 'Твоята Гражданска отговорност · {plate}',
-      insured: 'Застрахована',
-      validUntil: 'Валидна до {date}',
-      notInsured: 'Незастрахована',
-      notInsuredSub: 'Този автомобил няма активна полица.',
-      getCovered: 'Застраховай се сега',
-      rowInsurer: 'Застраховател',
-      reminder: 'Напомнянето е активирано',
-      reminderSub: 'Ще ти се обадим преди да изтече.',
-      secondaryCta: 'Искаш по-добра цена при подновяване?',
-      checkAnother: 'Провери друг номер',
-    },
-    ui: {
-      language: 'Език',
-      theme: 'Тема',
-      loading: 'Проверявам полицата ти…',
-      loadingSteps: [
-        'Извличам данните по регистрационния номер…',
-        'Проверявам застрахователните бази данни…',
-        'Определям типа на превозното средство…',
-        'Проверявам статуса на Гражданската отговорност…',
-        'Разчитам датата на изтичане…',
-        'Пазя данните ти по време на проверката…',
-        'Подготвям резултата…',
-      ],
-    },
-    licence: {
-      heading: 'Лицензирани в Европа. Отговорни пред теб.',
-      body: 'Лицензирани сме от Комисията за финансов надзор и упълномощени да работим в целия ЕС — активни в България и Италия, и изграждаме останалото. Лицензът не е просто формалност. Означава, че сме задължени по закон да ти дадем честна препоръка, да защитим данните ти и да носим отговорност за всяка полица — пред теб и пред регулатора.',
-    },
-  },
 } as const
 
 export type Locale = keyof typeof messages
-export const LOCALES: Locale[] = ['en', 'it', 'bg']
+export const LOCALES: Locale[] = ['en', 'it']
 export const DEFAULT_LOCALE: Locale = 'it'
 
 export const LOCALE_LABELS: Record<Locale, string> = {
   en: 'English',
   it: 'Italiano',
-  bg: 'Български',
 }
 
 // Maps app locale to a BCP-47 tag for Intl formatting (dates, etc.).
 export const LOCALE_TAGS: Record<Locale, string> = {
   en: 'en-GB',
   it: 'it-IT',
-  bg: 'bg-BG',
 }
 
 // Tiny {placeholder} interpolation — replaces {key} with vars[key].

@@ -32,13 +32,6 @@ const LABEL_BY_CATEGORY_BY_LOCALE: Record<string, Record<VehicleCategory, string
     AUTOCARRO: 'Truck',
     ALTRO: 'Vehicle',
   },
-  bg: {
-    AUTOVEICOLO: 'Кола',
-    MOTOCICLO: 'Мотоциклет',
-    CICLOMOTORE: 'Мотопед',
-    AUTOCARRO: 'Камион',
-    ALTRO: 'Превозно средство',
-  },
 }
 
 export function getVehicleIcon(category: VehicleCategory): IconComponent {
